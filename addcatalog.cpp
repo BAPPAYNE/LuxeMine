@@ -759,8 +759,6 @@ void AddCatalog::onModifyCatalogContextMenuRightClicked(const QPoint &pos) {
         modifyCatalogModel->removeRow(index.row()) ;
 
     }
-
-
 }
 
 void AddCatalog::setupModifyCatalogView()
