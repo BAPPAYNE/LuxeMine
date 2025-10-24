@@ -60,6 +60,18 @@ MainWindow::MainWindow(QWidget *parent)
         openAdminPage(6);
     });
 
+    connect(ui->actionAdd_new_Catalog, &QAction::triggered, this, [this]() {
+        openCatalogPage(0);
+    });
+
+    connect(ui->actionModify_Catalog, &QAction::triggered, this, [this]() {
+        openCatalogPage(1);
+    });
+
+    connect(ui->actionDelete_Catalog, &QAction::triggered, this, [this]() {
+        openCatalogPage(2);
+    });
+
 }
 
 MainWindow::~MainWindow()
@@ -94,8 +106,26 @@ void MainWindow::openAdminPage(int pageIndex)
     newAdmin->activateWindow();
 
     // directly set page
-    // newAdmin->setPage(pageIndex);
     newAdmin->setRequestedPage(pageIndex);
+}
+
+void MainWindow::openCatalogPage(int pageIndex){
+    if (!newAddCatalog || newAddCatalog->isHidden()) {
+        newAddCatalog = new AddCatalog();   // give MainWindow as parent
+        newAddCatalog->setAttribute(Qt::WA_DeleteOnClose);  // auto-delete when closed
+
+        // Reset pointer when destroyed
+        connect(newAddCatalog, &QObject::destroyed, this, [this]() {
+            newAddCatalog = nullptr;
+        });
+
+        newAddCatalog->show();
+    }
+
+    newAddCatalog->raise();
+    newAddCatalog->activateWindow();
+
+    newAddCatalog->setRequestedPage(pageIndex);
 }
 
 void MainWindow::on_pushButton_2_clicked()

@@ -26,7 +26,7 @@
    <item row="1" column="0" rowspan="2" colspan="10">
     <widget class="QStackedWidget" name="catalog_stacked">
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="add_catalog">
       <layout class="QGridLayout" name="gridLayout_2">
@@ -772,36 +772,6 @@ QPushButton:pressed {
          </property>
         </spacer>
        </item>
-       <item row="25" column="0" colspan="2">
-        <widget class="QPushButton" name="bulk_import_button">
-         <property name="styleSheet">
-          <string notr="true">QPushButton {
-    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1,
-                                      stop:0 #E0E0E0, stop:1 #CFCFCF);
-    color: #2C2C2C;
-    border: none;
-    border-radius: 6px;
-    padding: 10px 18px;
-    font-size: 14px;
-    font-weight: bold;
-    text-align: center;
-}
-QPushButton:hover {
-    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1,
-                                      stop:0 #D0D0D0, stop:1 #B0B0B0);
-    color: #1A1A1A;
-}
-QPushButton:pressed {
-    background-color: #A0A0A0;
-    color: #000000;
-}
-</string>
-         </property>
-         <property name="text">
-          <string>Bulk Import/Update</string>
-         </property>
-        </widget>
-       </item>
        <item row="0" column="0">
         <widget class="QLabel" name="label_5">
          <property name="font">
@@ -1038,7 +1008,84 @@ QLineEdit:hover {
          </property>
         </widget>
        </item>
+       <item row="25" column="0">
+        <widget class="QPushButton" name="bulk_import_button">
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1,
+                                      stop:0 #E0E0E0, stop:1 #CFCFCF);
+    color: #2C2C2C;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 18px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+}
+QPushButton:hover {
+    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1,
+                                      stop:0 #D0D0D0, stop:1 #B0B0B0);
+    color: #1A1A1A;
+}
+QPushButton:pressed {
+    background-color: #A0A0A0;
+    color: #000000;
+}
+</string>
+         </property>
+         <property name="text">
+          <string>Bulk Import/Update</string>
+         </property>
+        </widget>
+       </item>
+       <item row="25" column="1">
+        <widget class="QPushButton" name="demoDownloadPushButton">
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1,
+                                      stop:0 #E0E0E0, stop:1 #CFCFCF);
+    color: #2C2C2C;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 18px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+}
+QPushButton:hover {
+    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1,
+                                      stop:0 #D0D0D0, stop:1 #B0B0B0);
+    color: #1A1A1A;
+}
+QPushButton:pressed {
+    background-color: #A0A0A0;
+    color: #000000;
+}
+</string>
+         </property>
+         <property name="text">
+          <string>Demo File Download</string>
+         </property>
+        </widget>
+       </item>
       </layout>
+      <zorder>bulk_import_button</zorder>
+      <zorder>addCatalog_cancel_button</zorder>
+      <zorder>goldTable</zorder>
+      <zorder>groupBox</zorder>
+      <zorder>note</zorder>
+      <zorder>brows</zorder>
+      <zorder>save_insert</zorder>
+      <zorder>imageView_label_at_addImage</zorder>
+      <zorder>label_5</zorder>
+      <zorder>label_7</zorder>
+      <zorder>label_8</zorder>
+      <zorder>label_9</zorder>
+      <zorder>designNO_lineEdit</zorder>
+      <zorder>imagPath_lineEdit</zorder>
+      <zorder>jewelryButton</zorder>
+      <zorder>companyName_lineEdit</zorder>
+      <zorder>demoDownloadPushButton</zorder>
      </widget>
      <widget class="QWidget" name="delete_catalog">
       <widget class="QLabel" name="label_2">

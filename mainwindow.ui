@@ -312,8 +312,11 @@ QPushButton:pressed {
    </widget>
    <widget class="QMenu" name="menuAdd_Catalog">
     <property name="title">
-     <string>Add Catalog</string>
+     <string>Catalog</string>
     </property>
+    <addaction name="actionAdd_new_Catalog"/>
+    <addaction name="actionModify_Catalog"/>
+    <addaction name="actionDelete_Catalog"/>
    </widget>
    <widget class="QMenu" name="menuOrder_Book">
     <property name="title">
@@ -321,8 +324,8 @@ QPushButton:pressed {
     </property>
    </widget>
    <addaction name="menuAdmin"/>
-   <addaction name="menuUser"/>
    <addaction name="menuAdd_Catalog"/>
+   <addaction name="menuUser"/>
    <addaction name="menuOrder_Book"/>
   </widget>
   <action name="actionShow_Image">
@@ -358,6 +361,21 @@ QPushButton:pressed {
   <action name="actionOrder_List">
    <property name="text">
     <string>Order List</string>
+   </property>
+  </action>
+  <action name="actionAdd_new_Catalog">
+   <property name="text">
+    <string>Add New Catalog</string>
+   </property>
+  </action>
+  <action name="actionModify_Catalog">
+   <property name="text">
+    <string>Modify Catalog</string>
+   </property>
+  </action>
+  <action name="actionDelete_Catalog">
+   <property name="text">
+    <string>Delete Catalog</string>
    </property>
   </action>
  </widget>

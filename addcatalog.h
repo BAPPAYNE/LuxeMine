@@ -6,6 +6,8 @@
 #include <QStandardItem>
 #include <QListView>
 
+#include <QSortFilterProxyModel>
+
 #include "jewelrymenu.h"
 
 class QKeyEvent;
@@ -22,13 +24,15 @@ public:
     explicit AddCatalog(QWidget *parent = nullptr);
     ~AddCatalog() override;
 
+    void setRequestedPage(int index);
+
 private slots:
     void on_save_insert_clicked();
     void on_brows_clicked();
     void on_goldTable_cellChanged(int row, int column);
     void onJewelryItemSelected(const QString &item);
     void on_addCatalog_cancel_button_clicked();
-    void on_bulk_import_button_released();
+
 
 
     void on_add_catalog_button_released();
@@ -42,6 +46,11 @@ private slots:
     void onModifyCatalogContextMenuRightClicked(const QPoint &pos) ;
 
     void closeEvent(QCloseEvent *event) override;
+
+    void on_demoDownloadPushButton_clicked();
+
+
+    void on_bulk_import_button_clicked();
 
 protected:
     void keyPressEvent(QKeyEvent *event) override;
@@ -65,11 +74,15 @@ private:
     QString selectedImageType;
     QListView *modifyCatalogView {nullptr} ;
     QStandardItemModel *modifyCatalogModel {nullptr} ;
+    QSortFilterProxyModel *filterModel = nullptr;
+
     QSqlDatabase modifyCatalogConn;
 
     QHash <QString, QStandardItem*> modifyItemMap ;
     bool isModifyMode = false ;
     bool deleteIsSet = false ;
+
+    int requestedPageIndex = -1;
 };
 
 #endif // ADDCATALOG_H

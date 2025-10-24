@@ -17,6 +17,7 @@
 #include <QStyledItemDelegate>
 #include <QPainter>
 #include <QFontMetrics>
+#include <QSortFilterProxyModel>
 #include <QApplication>
 
 #include "databaseutils.h"
@@ -157,6 +158,20 @@ AddCatalog::~AddCatalog()
     // jewelryMenu auto-deleted since it has "this" as parent
 }
 
+void AddCatalog::setRequestedPage(int index) {
+    requestedPageIndex = index;
+
+    if (ui->catalog_stacked->currentIndex() == 0) {
+        switch (requestedPageIndex) {
+        case 0: on_add_catalog_button_released(); ; break;
+        case 1: on_modify_catalog_button_released(); break;
+        case 2: on_delete_catalog_button_released(); break;
+        default: on_add_catalog_button_released(); break;
+        }
+        requestedPageIndex = -1; // reset
+    }
+}
+
 void AddCatalog::onJewelryItemSelected(const QString &item)
 {
     selectedImageType = item; // e.g., "Ring (Men's Party Wear)"
@@ -252,27 +267,6 @@ void AddCatalog::setupGoldTable()
             this, &AddCatalog::calculateGoldWeights);
 }
 
-// void AddCatalog::calculateGoldWeights(QTableWidgetItem *item)
-// {
-//     if (!item || item->column() != 1 || item->row() != 0) return; // Only recalc when 24kt weight is changed
-
-//     bool ok;
-//     double weight24kt = item->text().toDouble(&ok);
-//     if (!ok || weight24kt <= 0) return;
-
-//     QList<int> karats = {24, 22, 20, 18, 14, 10};
-
-//     // Prevent recursive signals when updating table programmatically
-//     ui->goldTable->blockSignals(true);
-
-//     for (int i = 1; i < karats.size(); ++i) {
-//         double newWeight = (karats[i] / 24.0) * weight24kt;
-//         ui->goldTable->item(i, 1)->setText(QString::number(newWeight, 'f', 3));
-//     }
-
-//     ui->goldTable->blockSignals(false);
-// }
-
 void AddCatalog::calculateGoldWeights(QTableWidgetItem *item)
 {
     // Only recalc when 24kt weight is changed (row 0, column 1)
@@ -303,7 +297,6 @@ void AddCatalog::calculateGoldWeights(QTableWidgetItem *item)
 
     ui->goldTable->blockSignals(false);
 }
-
 
 void AddCatalog::on_save_insert_clicked()
 {
@@ -456,20 +449,6 @@ void AddCatalog::on_addCatalog_cancel_button_clicked()
     this->close();
 }
 
-
-void AddCatalog::on_bulk_import_button_released()
-{
-    QString excelPath = QFileDialog::getOpenFileName(this, "Select Excel File","","Excel Files (*.xlsx)");
-    if(excelPath.isEmpty())
-        return ;
-
-    if (DatabaseUtils::excelBulkInsertCatalog(excelPath)){
-        QMessageBox::information(this, "Success", "Bulk import completed successfully") ;
-    } else {
-        QMessageBox::critical(this, "Error", "Bulk import failed!") ;
-    }
-}
-
 void AddCatalog::resetAddCatalogUI()
 {
     // Clear all input fields
@@ -497,7 +476,6 @@ void AddCatalog::resetAddCatalogUI()
     // Exit modify mode
     isModifyMode = false;
 }
-
 
 void AddCatalog::on_add_catalog_button_released()
 {
@@ -528,99 +506,97 @@ void AddCatalog::on_add_catalog_button_released()
     ui->catalog_stacked->setCurrentIndex(0);
 }
 
-
 void AddCatalog::loadCatalogForModify()
 {
-    modifyCatalogModel->clear();
+    qDebug() << "[ModifyView] Loading catalog data for modify/delete...";
+
+    modifyCatalogModel->removeRows(0, modifyCatalogModel->rowCount());
 
     QSqlDatabase db = QSqlDatabase::database("modify_catalog_conn");
-
-    if (!db.isOpen() && !db.open()) {
-        qWarning() << "DB open failed in loadCatalogForModify:" << db.lastError().text();
+    if (!db.isOpen()) {
+        qWarning() << "[DB ERROR] Database not open!";
         return;
     }
 
     QSqlQuery query(db);
-    if (!query.exec("SELECT image_id, image_path, image_type, design_no, company_name FROM image_data")) {
-        qWarning() << "Query failed:" << query.lastError().text();
+    if (!query.exec("SELECT image_path, image_type, design_no, company_name FROM image_data WHERE \"delete\" = 0")) {
+        qWarning() << "[DB ERROR]" << query.lastError().text();
         return;
     }
 
-    while (query.next()) {
-        QString designNo   = query.value("design_no").toString();
-        QString company    = query.value("company_name").toString();
-        QString imagePath  = query.value("image_path").toString();
+    const QSize iconSize(160, 160);
 
-        QString fullPath = imagePath;
+    auto resolveImagePath = [](const QString &path) {
+        QString fullPath = path;
         if (!QFile::exists(fullPath)) {
-            QString alt = QDir(QCoreApplication::applicationDirPath()).filePath(imagePath);
+            QString alt = QDir(QCoreApplication::applicationDirPath()).filePath(path);
             if (QFile::exists(alt))
                 fullPath = alt;
         }
+        return fullPath;
+    };
 
-        QPixmap pix;
-        if (QFile::exists(fullPath))
-            pix.load(fullPath);
-        else
-            pix.load(":/icon/no_image_1.png");
+    while (query.next()) {
+        QString designNo = query.value("design_no").toString();
+        QString company = query.value("company_name").toString();
+        QString fullPath = resolveImagePath(query.value("image_path").toString());
+
+        QPixmap pix = QFile::exists(fullPath)
+                          ? QPixmap(fullPath)
+                          : QPixmap(":/icon/no_image_1.png");
 
         if (pix.isNull()) {
             qWarning() << "Failed to load image:" << fullPath;
             continue;
         }
 
-        QPixmap scaledPix = pix.scaled(160, 160, Qt::KeepAspectRatio, Qt::SmoothTransformation);
-        QIcon icon(scaledPix);
-
-        QStandardItem *item = new QStandardItem(icon, designNo + "\n" + company);
+        auto *item = new QStandardItem(QIcon(pix.scaled(iconSize, Qt::KeepAspectRatio, Qt::SmoothTransformation)),
+                                       QString("%1\n%2").arg(designNo, company));
         item->setEditable(false);
         item->setData(fullPath, Qt::UserRole + 1);
         item->setData(designNo, Qt::UserRole + 2);
         item->setData(company, Qt::UserRole + 3);
-
         modifyCatalogModel->appendRow(item);
     }
 
-    if (modifyCatalogModel->rowCount() == 0)
-        qInfo() << "No catalog data found.";
+    qDebug() << "[ModifyView] Loaded" << modifyCatalogModel->rowCount() << "items.";
 }
 
-void AddCatalog::modifyClickedAction(const QString &designNo) {
-
-
-    // Database setup
+void AddCatalog::modifyClickedAction(const QString &designNo)
+{
+    // ---------- Database ----------
     QSqlDatabase db;
-    if (QSqlDatabase::contains("modify_catalog_conn")) {
+    if (QSqlDatabase::contains("modify_catalog_conn"))
         db = QSqlDatabase::database("modify_catalog_conn");
-    } else {
+    else {
         db = QSqlDatabase::addDatabase("QSQLITE", "modify_catalog_conn");
         db.setDatabaseName(QDir(QCoreApplication::applicationDirPath())
                                .filePath("database/mega_mine_image.db"));
     }
 
-    if (!db.open()) {
-        qDebug() << "[DB ERROR] Failed to open database:" << db.lastError().text();
+    if (!db.isOpen() && !db.open()) {
+        qWarning() << "[DB ERROR]" << db.lastError().text();
         return;
     }
 
-    // Fetch record
+    // ---------- Query ----------
     QSqlQuery query(db);
-    query.prepare(R"(SELECT image_path, image_type, design_no, company_name, gold_weight, diamond, stone, note
-                     FROM image_data
-                     WHERE design_no = :design_no AND "delete" = 0)");
+    query.prepare(R"(
+        SELECT image_path, image_type, company_name, note,
+               gold_weight, diamond, stone
+        FROM image_data
+        WHERE design_no = :design_no AND "delete" = 0
+    )");
     query.bindValue(":design_no", designNo);
 
-    if (!query.exec()) {
-        qWarning() << "[QUERY ERROR]" << query.lastError().text();
+    if (!query.exec() || !query.next()) {
+        QMessageBox::warning(this, "Not Found", "No record found for design: " + designNo);
         return;
     }
 
-    if (!query.next()) {
-        QMessageBox::warning(this, "Not Found", "No record found for this design.");
-        return;
-    }
-
-    QString imagePath = QDir(QCoreApplication::applicationDirPath()).filePath(query.value("image_path").toString());
+    // ---------- Extract Values ----------
+    QString relImagePath = query.value("image_path").toString();
+    QString absImagePath = QDir(QCoreApplication::applicationDirPath()).filePath(relImagePath);
     QString imageType = query.value("image_type").toString();
     QString companyName = query.value("company_name").toString();
     QString note = query.value("note").toString();
@@ -628,117 +604,102 @@ void AddCatalog::modifyClickedAction(const QString &designNo) {
     QString diamondJson = query.value("diamond").toString();
     QString stoneJson = query.value("stone").toString();
 
-
-    // Fill text fields
-    ui->imagPath_lineEdit->setText(imagePath);
+    // ---------- UI Reset ----------
+    ui->imagPath_lineEdit->setText(absImagePath);
     ui->designNO_lineEdit->setText(designNo);
     ui->companyName_lineEdit->setText(companyName);
     ui->note->setText(note);
-    ui->jewelryButton->setText(imageType);ui->designNO_lineEdit->setEnabled(false) ;
+    ui->jewelryButton->setText(imageType);
+    ui->designNO_lineEdit->setEnabled(false);
     selectedImageType = imageType;
 
-    qDebug() << "Image Path : " << imagePath ;
+    // ---------- Load Image ----------
+    auto loadImageToLabel = [this](const QString &path) {
+        QString realPath = QFile::exists(path)
+        ? path
+        : QDir(QCoreApplication::applicationDirPath()).filePath(path);
+        QPixmap pixmap = QFile::exists(realPath)
+                             ? QPixmap(realPath)
+                             : QPixmap(":/icon/no_image_1.png");
 
-    // Handle image load safely
-    QString absPath = imagePath;
-    if (!QFile::exists(absPath))
-        absPath = QDir(QCoreApplication::applicationDirPath()).filePath(imagePath);
-
-    QPixmap pixmap;
-    if (QFile::exists(absPath)) {
-        pixmap.load(absPath);
-        int labelWidth = ui->imageView_label_at_addImage->width();
-        int labelHeight = ui->imageView_label_at_addImage->height();
-
-        if (labelWidth > 0 && labelHeight > 0) {
-            ui->imageView_label_at_addImage->setPixmap(
-                pixmap.scaled(labelWidth, labelHeight, Qt::KeepAspectRatio, Qt::SmoothTransformation));
+        if (pixmap.isNull()) {
+            qWarning() << "[UI] Image missing:" << realPath;
+            return;
         }
-        qDebug() << "[UI] Image loaded successfully from:" << absPath;
-    } else {
-        qDebug() << "[UI WARNING] Image file missing, loading placeholder.";
-    }
 
+        const int w = ui->imageView_label_at_addImage->width();
+        const int h = ui->imageView_label_at_addImage->height();
+        ui->imageView_label_at_addImage->setPixmap(
+            pixmap.scaled(w, h, Qt::KeepAspectRatio, Qt::SmoothTransformation));
+    };
+    loadImageToLabel(absImagePath);
 
-    // Load gold table
-    ui->goldTable->setRowCount(0) ;
+    // ---------- Load JSON Tables ----------
+    ui->goldTable->setRowCount(0);
+    ui->diaTable->setRowCount(0);
+    ui->stoneTable->setRowCount(0);
+
+    // --- Helper to populate QTableWidget from JSON ---
+    auto populateTable = [](QTableWidget *table, const QJsonArray &array,
+                            const QStringList &shapes = {}, const QString &type = QString()) {
+        for (const QJsonValue &val : array) {
+            const QJsonObject obj = val.toObject();
+            const int row = table->rowCount();
+            table->insertRow(row);
+
+            if (type == "gold") {
+                table->setItem(row, 0, new QTableWidgetItem(obj["karat"].toString()));
+                table->setItem(row, 1, new QTableWidgetItem(obj["weight(g)"].toString()));
+            } else {
+                QComboBox *shapeBox = new QComboBox(table);
+                shapeBox->addItems(shapes);
+                shapeBox->setCurrentText(obj["type"].toString());
+
+                QComboBox *sizeBox = new QComboBox(table);
+                sizeBox->addItems(DatabaseUtils::fetchSizes(type, obj["type"].toString()));
+                sizeBox->setCurrentText(obj["sizeMM"].toString());
+
+                table->setCellWidget(row, 0, shapeBox);
+                table->setCellWidget(row, 1, sizeBox);
+                table->setItem(row, 2, new QTableWidgetItem(obj["quantity"].toString()));
+            }
+        }
+    };
+
+    // --- Parse & Fill Gold ---
     QJsonDocument goldDoc = QJsonDocument::fromJson(goldJson.toUtf8());
     if (goldDoc.isArray()) {
-        QJsonArray arr = goldDoc.array() ;
-        qDebug() << "[JSON] Parsing gold... array size:" << arr.size();
-
-        ui->goldTable->setColumnCount(2); // ensure columns
-        for (int i = 0; i < arr.size(); ++i) {
-            QJsonObject obj = arr[i].toObject();
-            int row = ui->goldTable->rowCount() ;
-            ui->goldTable->insertRow(row);
-            ui->goldTable->setItem(row, 0, new QTableWidgetItem(obj["karat"].toString()));
-            ui->goldTable->setItem(row, 1, new QTableWidgetItem(obj["weight(g)"].toString())) ;
-            qDebug() << "[GOLD] inserted row" << row << ":" << obj["karat"].toString() << "," << obj["weight(g)"].toString() ;
-        }
+        populateTable(ui->goldTable, goldDoc.array(), {}, "gold");
+    } else {
+        qWarning() << "[WARN] Invalid gold JSON for design:" << designNo;
     }
 
-    // Load diamond table
-    ui->diaTable->setRowCount(0);
-    QJsonDocument diaDoc = QJsonDocument::fromJson(diamondJson.toUtf8()) ;
+    // Cache shapes to reduce DB hits
+    const QStringList diamondShapes = DatabaseUtils::fetchShapes("diamond");
+    const QStringList stoneShapes = DatabaseUtils::fetchShapes("stone");
+
+    // --- Parse & Fill Diamonds ---
+    QJsonDocument diaDoc = QJsonDocument::fromJson(diamondJson.toUtf8());
     if (diaDoc.isArray()) {
-        QJsonArray arr = diaDoc.array();
-
-        for (auto item : arr) {
-            QJsonObject obj = item.toObject();
-            int row = ui->diaTable->rowCount();
-            ui->diaTable->insertRow(row);
-
-            QComboBox *typeBox = new QComboBox(ui->diaTable);
-            typeBox->addItems(DatabaseUtils::fetchShapes("diamond"));
-            typeBox->setCurrentText(obj["type"].toString());
-
-            QComboBox *sizeBox = new QComboBox(ui->diaTable);
-            sizeBox->addItems(DatabaseUtils::fetchSizes("diamond", obj["type"].toString()));
-            sizeBox->setCurrentText(obj["sizeMM"].toString());
-
-            ui->diaTable->setCellWidget(row, 0, typeBox);
-            ui->diaTable->setCellWidget(row, 1, sizeBox);
-
-            ui->diaTable->setItem(row, 2, new QTableWidgetItem(obj["quantity"].toString()));
-            qDebug() << "[DIAMOND] inserted row" << row << ":" << obj["type"].toString() << obj["sizeMM"].toString() << obj["quantity"].toString();
-        }
+        populateTable(ui->diaTable, diaDoc.array(), diamondShapes, "diamond");
+    } else {
+        qWarning() << "[WARN] Invalid diamond JSON for design:" << designNo;
     }
 
-    // Load stone table
-    ui->stoneTable->setRowCount(0);
+    // --- Parse & Fill Stones ---
     QJsonDocument stoneDoc = QJsonDocument::fromJson(stoneJson.toUtf8());
     if (stoneDoc.isArray()) {
-        QJsonArray arr = stoneDoc.array();
-        qDebug() << "[JSON] Parsing stones... array size:" << arr.size();
-
-        for (auto item : arr) {
-            QJsonObject obj = item.toObject();
-            int row = ui->stoneTable->rowCount();
-            ui->stoneTable->insertRow(row);
-
-            QComboBox *typeBox = new QComboBox(ui->stoneTable);
-            typeBox->addItems(DatabaseUtils::fetchShapes("stone"));
-            typeBox->setCurrentText(obj["type"].toString());
-
-            QComboBox *sizeBox = new QComboBox(ui->stoneTable);
-            sizeBox->addItems(DatabaseUtils::fetchSizes("stone", obj["type"].toString()));
-            sizeBox->setCurrentText(obj["sizeMM"].toString());
-
-            ui->stoneTable->setCellWidget(row, 0, typeBox);
-            ui->stoneTable->setCellWidget(row, 1, sizeBox);
-
-            ui->stoneTable->setItem(row, 2, new QTableWidgetItem(obj["quantity"].toString()));
-            qDebug() << "[STONE] inserted row" << row << ":" << obj["type"].toString() << obj["sizeMM"].toString() << obj["quantity"].toString();
-        }
+        populateTable(ui->stoneTable, stoneDoc.array(), stoneShapes, "stone");
+    } else {
+        qWarning() << "[WARN] Invalid stone JSON for design:" << designNo;
     }
 
+    // ---------- Finalize ----------
     ui->catalog_stacked->setCurrentIndex(0);
     isModifyMode = true;
+
+    qDebug() << "[Modify Mode] Loaded design:" << designNo << "Type:" << imageType;
 }
-
-
-
 
 void AddCatalog::deleteClickedAction(const QString &designNo) {
     QMessageBox::StandardButton confirmDelete = QMessageBox::question(this, "Delete Confirmation", "Are you sure you want to delete design " + designNo + "?", QMessageBox::Yes | QMessageBox::No) ;
@@ -807,6 +768,14 @@ void AddCatalog::setupModifyCatalogView()
     QWidget *modifyPage = ui->catalog_stacked->widget(2);
     if (!modifyPage) return;
 
+    // --- Ensure layout ---
+    QVBoxLayout *layout = qobject_cast<QVBoxLayout *>(modifyPage->layout());
+    if (!layout) {
+        layout = new QVBoxLayout(modifyPage);
+        modifyPage->setLayout(layout);
+    }
+
+    // --- Ensure view exists ---
     if (!modifyCatalogView) {
         modifyCatalogView = new QListView(modifyPage);
         modifyCatalogView->setViewMode(QListView::IconMode);
@@ -816,160 +785,116 @@ void AddCatalog::setupModifyCatalogView()
         modifyCatalogView->setUniformItemSizes(true);
         modifyCatalogView->setSelectionMode(QAbstractItemView::SingleSelection);
         modifyCatalogView->setSpacing(12);
-        modifyCatalogView->setItemAlignment(Qt::AlignCenter);
+        modifyCatalogView->setEditTriggers(QAbstractItemView::NoEditTriggers);
         modifyCatalogView->setContextMenuPolicy(Qt::CustomContextMenu);
-        connect(modifyCatalogView, &QListView::customContextMenuRequested, this, &AddCatalog::onModifyCatalogContextMenuRightClicked);
-        connect(modifyCatalogView, &QListView::doubleClicked, this, [this](const QModelIndex &index) {
-            qDebug() << "Connect override !" ;
-            if (!index.isValid())
-                return;
 
-            QStandardItem *item = modifyCatalogModel->itemFromIndex(index);
-            if (!item)
-                return;
+        connect(modifyCatalogView, &QListView::customContextMenuRequested,
+                this, &AddCatalog::onModifyCatalogContextMenuRightClicked);
 
-            QString designNo = item->data(Qt::UserRole).toString();
-            if (designNo.isEmpty())
-                return;
-
-            if (deleteIsSet) {
-                // Delete mode — do not switch stacked widget
-                qDebug() << "[DoubleClick] Delete mode active for design:" << designNo;
-                AddCatalog::deleteClickedAction(designNo);
-
-                // Remove only the deleted row visually
-                modifyCatalogModel->removeRow(index.row());
-
-                // Optional: show toast or message
-                QMessageBox::information(this, "Deleted", "Design " + designNo + " has been deleted.");
-                return;
-            }
-
-            qDebug() << "[DoubleClick] Modify mode active for design:" << designNo;
-            AddCatalog::modifyClickedAction(designNo);
-
-        }) ;
-
-        QVBoxLayout *layout = qobject_cast<QVBoxLayout*>(modifyPage->layout());
-        if (layout) layout->addWidget(modifyCatalogView);
-
-        modifyCatalogView->setStyleSheet(R"(
-            QListView {
-                background-color: #F9FAFB;
-                border: 1px solid #C5C6C7;
-                border-radius: 0px;
-                color: #2B2B2B;
-                outline: none;
-                padding: 6px;
-                font-size: 13px;
-                font-family: "Segoe UI", "Arial";
-            }
-
-            QListView::item {
-                background-color: #FFFFFF;
-                border: 1px solid #D4D4D4;
-                border-radius: 0px;
-                margin: 8px;
-                padding: 8px 6px;
-            }
-
-            QListView::item:hover {
-                background-color: #EEF3FA;
-                border: 1px solid #9EB9E2;
-                color: #1A1A1A;
-            }
-
-            QListView::item:selected {
-                background-color: #D9E8FC;
-                border: 1px solid #4A90E2;
-                color: #000000;
-                font-weight: 500;
-            }
-
-            /* Vertical Scrollbar */
-            QScrollBar:vertical {
-                background: #F2F2F2;
-                width: 12px;
-                border: none;
-                margin: 0;
-            }
-
-            QScrollBar::handle:vertical {
-                background: #BDBDBD;
-                border: 1px solid #A5A5A5;
-                border-radius: 0px;
-                min-height: 24px;
-            }
-
-            QScrollBar::handle:vertical:hover {
-                background: #9E9E9E;
-            }
-
-            QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
-                background: none;
-                height: 0px;
-            }
-
-            /* Horizontal Scrollbar */
-            QScrollBar:horizontal {
-                background: #F2F2F2;
-                height: 12px;
-                border: none;
-                margin: 0;
-            }
-
-            QScrollBar::handle:horizontal {
-                background: #BDBDBD;
-                border: 1px solid #A5A5A5;
-                border-radius: 0px;
-                min-width: 24px;
-            }
-
-            QScrollBar::handle:horizontal:hover {
-                background: #9E9E9E;
-            }
-
-            QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal {
-                background: none;
-                width: 0px;
-            }
-
-        )");
-
+        layout->addWidget(modifyCatalogView);
     }
 
-    modifyCatalogView->show();
-
-    if (!modifyCatalogModel) {
+    // --- Ensure models exist ---
+    if (!modifyCatalogModel)
         modifyCatalogModel = new QStandardItemModel(this);
-        modifyCatalogView->setModel(modifyCatalogModel);
+
+    if (!filterModel) {
+        filterModel = new QSortFilterProxyModel(this);
+        filterModel->setFilterCaseSensitivity(Qt::CaseInsensitive);
+        filterModel->setFilterRole(Qt::UserRole);
+        filterModel->setDynamicSortFilter(true);
+        filterModel->setSourceModel(modifyCatalogModel);
     }
 
-    modifyCatalogModel->clear();
+    // ✅ Always attach the proxy model to the view
+    modifyCatalogView->setModel(filterModel);
+
+    // --- Ensure single connection for double-click ---
+    static bool connected = false;
+    if (!connected) {
+        connect(modifyCatalogView, &QListView::doubleClicked, this, [this](const QModelIndex &proxyIndex) {
+            qDebug() << "[ModifyView] Double-click detected.";
+
+            if (!proxyIndex.isValid()) return;
+
+            QModelIndex sourceIndex = filterModel ? filterModel->mapToSource(proxyIndex) : proxyIndex;
+            if (!sourceIndex.isValid()) {
+                qWarning() << "[ModifyView] Invalid source index after mapping!";
+                return;
+            }
+
+            QStandardItem *item = modifyCatalogModel->itemFromIndex(sourceIndex);
+            if (!item) {
+                qWarning() << "[ModifyView] itemFromIndex returned nullptr!";
+                return;
+            }
+
+            QString designNo = item->data(Qt::UserRole + 2).toString();
+            qDebug() << item->data().toString();
+            if (designNo.isEmpty()) {
+                qWarning() << "[ModifyView] Empty design number!";
+                return;
+            }
+
+            // --- Delete / Modify handling ---
+            if (deleteIsSet) {
+                deleteClickedAction(designNo);
+                modifyCatalogModel->removeRow(sourceIndex.row());
+                QMessageBox::information(this, "Deleted", "Design " + designNo + " has been deleted.");
+            } else {
+                modifyClickedAction(designNo);
+            }
+        });
+        connected = true;
+    }
 }
 
 void AddCatalog::closeEvent(QCloseEvent *event)
 {
-    // Closes the modify_catalog_conn when addcatalog.ui is closed.
-    if (QSqlDatabase::contains("modify_catalog_conn")) {
-        QSqlDatabase db = QSqlDatabase::database("modify_catalog_conn");
-        if (db.isOpen()) {
-            db.close();
-        }
-        QSqlDatabase::removeDatabase("modify_catalog_conn");
-        qDebug() << "modify_catalog_conn closed and removed.";
+    qDebug() << "[AddCatalog] Closing window...";
+
+    // Ensure model pointers are safely deleted before removing DB
+    if (modifyCatalogModel) {
+        modifyCatalogModel->clear();
+        delete modifyCatalogModel;
+        modifyCatalogModel = nullptr;
     }
 
-    QWidget::closeEvent(event); // or QDialog::closeEvent(event) if it's a QDialog
-}
+    if (modifyCatalogView) {
+        modifyCatalogView->setModel(nullptr);
+        delete modifyCatalogView;
+        modifyCatalogView = nullptr;
+    }
 
+    // Close and safely remove the modify_catalog_conn
+    if (QSqlDatabase::contains("modify_catalog_conn")) {
+        {
+            QSqlDatabase db = QSqlDatabase::database("modify_catalog_conn", false);
+            if (db.isOpen()) {
+                db.close();
+                qDebug() << "[DB] modify_catalog_conn closed.";
+            }
+        }
+        QSqlDatabase::removeDatabase("modify_catalog_conn");
+        qDebug() << "[DB] modify_catalog_conn removed.";
+    }
+
+    QWidget::closeEvent(event);  // Call base implementation
+}
 
 void AddCatalog::loadModifyCatalogData()
 {
-    QString dbPath = QDir(QCoreApplication::applicationDirPath()).filePath("database/mega_mine_image.db");
-    QSqlDatabase db;
+    // --- Ensure model exists ---
+    if (!modifyCatalogModel) {
+        qWarning() << "[Catalog] modifyCatalogModel is null — initializing...";
+        modifyCatalogModel = new QStandardItemModel(this);
+        if (modifyCatalogView)
+            modifyCatalogView->setModel(modifyCatalogModel);
+    }
+    modifyCatalogModel->clear();
 
-    // Checking... If database is already present then no need to add that database again. It solves database duplication issue.
+    // --- Database setup ---
+    QSqlDatabase db;
     if (QSqlDatabase::contains("modify_catalog_conn")) {
         db = QSqlDatabase::database("modify_catalog_conn");
     } else {
@@ -977,52 +902,72 @@ void AddCatalog::loadModifyCatalogData()
         db.setDatabaseName(QDir(QCoreApplication::applicationDirPath())
                                .filePath("database/mega_mine_image.db"));
     }
-    if (!db.isOpen() && !db.open()) return;
 
-
-    QSqlQuery query(db);
-    if (!query.exec(R"(SELECT design_no, company_name, image_path FROM image_data WHERE "delete" = 0)")) {
-        db.close();
+    if (!db.isOpen() && !db.open()) {
+        qWarning() << "[DB ERROR] Unable to open database:" << db.lastError().text();
         return;
     }
 
-    while (query.next()) {
-        QString designNo = query.value("design_no").toString();
-        QString company = query.value("company_name").toString();
-        QString imagePath = QDir(QCoreApplication::applicationDirPath()).filePath(query.value("image_path").toString());
-
-        QPixmap pix = QFile::exists(imagePath)
-                          ? QPixmap(imagePath)
-                          : QPixmap(":/icon/no_image_1.png");
-
-        QString companyText = company.left(25) + (company.size() > 25 ? "…" : "");
-        QStandardItem *item = new QStandardItem();
-        item->setIcon(QIcon(pix.scaled(80, 80, Qt::KeepAspectRatio, Qt::SmoothTransformation)));
-        item->setText(designNo + "\n" + companyText);
-        item->setTextAlignment(Qt::AlignCenter);
-        item->setEditable(false);
-        item->setSizeHint(QSize(160, 160));
-        item->setData(designNo, Qt::UserRole) ;
-
-        modifyCatalogModel->appendRow(item);
+    // --- Fetch catalog data ---
+    QSqlQuery query(db);
+    if (!query.exec(R"(SELECT design_no, company_name, image_path
+                        FROM image_data
+                        WHERE "delete" = 0)")) {
+        qWarning() << "[DB ERROR] Query failed:" << query.lastError().text();
+        return;
     }
 
-    db.close();
-}
+    const QString appDir = QCoreApplication::applicationDirPath();
+    int itemCount = 0;
 
+    // --- Iterate results ---
+    while (query.next()) {
+        const QString designNo = query.value("design_no").toString();
+        QString company = query.value("company_name").toString();
+        QString imageRelPath = query.value("image_path").toString();
+
+        // --- Resolve absolute path ---
+        QString absImagePath = QDir(appDir).filePath(imageRelPath);
+        if (!QFile::exists(absImagePath)) {
+            qWarning() << "[WARN] Missing image for design:" << designNo << "->" << absImagePath;
+            absImagePath = ":/icon/no_image_1.png";
+        }
+
+        // --- Load & scale preview ---
+        QPixmap pix(absImagePath);
+        if (pix.isNull())
+            pix.load(":/icon/no_image_1.png");
+        QIcon icon(pix.scaled(80, 80, Qt::KeepAspectRatio, Qt::SmoothTransformation));
+
+        // --- Trim company name for UI ---
+        if (company.length() > 25)
+            company = company.left(25) + "…";
+
+        // --- Create model item ---
+        auto *item = new QStandardItem(icon, designNo + "\n" + company);
+        item->setEditable(false);
+        item->setTextAlignment(Qt::AlignCenter);
+        item->setSizeHint(QSize(160, 160));
+        item->setData(designNo, Qt::UserRole);
+
+        modifyCatalogModel->appendRow(item);
+        ++itemCount;
+    }
+
+    qInfo() << "[Catalog] Loaded" << itemCount << "designs into modify view.";
+}
 
 void AddCatalog::on_modify_catalog_button_released()
 {
-    AddCatalog::deleteIsSet = false ;
+    deleteIsSet = false;
     ui->catalog_stacked->setCurrentIndex(2);
+
     QWidget *modifyPage = ui->catalog_stacked->widget(2);
-    if (!modifyPage) return;
+    if (!modifyPage)
+        return;
 
-    // Set professional white background
-    // modifyPage->setStyleSheet("background-color: #F8F8F8; border: 1.5px solid #999999;  border-radius:1px;");
-
-    // Ensure there is a layout
-    QVBoxLayout *layout = qobject_cast<QVBoxLayout*>(modifyPage->layout());
+    // ✅ Ensure layout
+    QVBoxLayout *layout = qobject_cast<QVBoxLayout *>(modifyPage->layout());
     if (!layout) {
         layout = new QVBoxLayout(modifyPage);
         layout->setContentsMargins(4, 4, 4, 4);
@@ -1030,46 +975,98 @@ void AddCatalog::on_modify_catalog_button_released()
         modifyPage->setLayout(layout);
     }
 
-    static QLineEdit *modifySearchBar = nullptr ;
-    if(!modifySearchBar) {
-        modifySearchBar = new QLineEdit(modifyPage) ;
-        modifySearchBar->setPlaceholderText("Search by design number...") ;
-        modifySearchBar->setClearButtonEnabled(true) ;
-        modifySearchBar->setFixedHeight(32) ;
-        // modifySearchBar->setStyleSheet(R"(
-        //     QLineEdit { border: 1px solid #999999;  border-radius: 6px; padding-left: 8px;  background-color: #FFFFFF;  font-size: 14px;    }
-        //     QLineEdit:focus {  border: 1px solid #0078D7;   background-color: #F9F9F9;  }
-        // )") ;
+    // ✅ Reset models
+    delete modifyCatalogModel;
+    modifyCatalogModel = new QStandardItemModel(this);
+
+    delete filterModel;
+    filterModel = new QSortFilterProxyModel(this);
+    filterModel->setFilterCaseSensitivity(Qt::CaseInsensitive);
+    filterModel->setFilterRole(Qt::UserRole);
+    filterModel->setDynamicSortFilter(true);
+    filterModel->setSourceModel(modifyCatalogModel);
+
+    // ✅ Setup view
+    setupModifyCatalogView();
+    modifyCatalogView->setModel(filterModel);
+
+    // ✅ Search bar
+    static QLineEdit *modifySearchBar = nullptr;
+    if (!modifySearchBar) {
+        modifySearchBar = new QLineEdit(modifyPage);
+        modifySearchBar->setPlaceholderText("Search by design number...");
+        modifySearchBar->setClearButtonEnabled(true);
+        modifySearchBar->setFixedHeight(32);
+        layout->insertWidget(0, modifySearchBar);
+
+        connect(modifySearchBar, &QLineEdit::textChanged, this, [this](const QString &text) {
+            if (filterModel)
+                filterModel->setFilterFixedString(text.trimmed());
+        });
     }
 
-    layout->insertWidget(0, modifySearchBar) ;
-
-    connect(modifySearchBar, &QLineEdit::textChanged, this, [this](const QString &text) {
-        if (!modifyCatalogModel) return;
-        if (text.trimmed().isEmpty()) {
-            for (int i = 0; i < modifyCatalogModel->rowCount(); ++i){
-                modifyCatalogView->setRowHidden(i, false);
-            }
+    // ✅ Database
+    if (!QSqlDatabase::contains("modify_catalog_conn")) {
+        QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE", "modify_catalog_conn");
+        db.setDatabaseName(QDir(QCoreApplication::applicationDirPath())
+                               .filePath("database/mega_mine_image.db"));
+        if (!db.open()) {
+            QMessageBox::critical(this, "DB Error", db.lastError().text());
             return;
         }
-        for (int i = 0; i < modifyCatalogModel->rowCount(); ++i) {
-            QStandardItem *item = modifyCatalogModel->item(i);
-            const QString designNo = item->data(Qt::UserRole).toString();
-            const bool match = designNo.contains(text, Qt::CaseInsensitive);
-            modifyCatalogView->setRowHidden(i, !match);
-        }
+    }
 
-    });
-
-
+    // loadModifyCatalogData();
     setupModifyCatalogView();
-    loadModifyCatalogData();
-}
+    loadCatalogForModify();
 
+}
 
 void AddCatalog::on_delete_catalog_button_released()
 {
+    on_modify_catalog_button_released();
     AddCatalog::deleteIsSet = true ;
     ui->catalog_stacked->setCurrentIndex(2);
+}
+
+void AddCatalog::on_demoDownloadPushButton_clicked()
+{
+    // 1️⃣ Get the path of the demo file in your application
+    QString appDir = QCoreApplication::applicationDirPath(); // path of .exe
+    QString demoFilePath = appDir + "/excel/demo_catalog.xlsx";
+
+    // 2️⃣ Ask user where to save it
+    QString savePath = QFileDialog::getSaveFileName(
+        this,
+        "Save Demo Catalog",
+        QDir::homePath() + "/demo_catalog.xlsx", // default file name
+        "Excel Files (*.xlsx)"
+        );
+
+    if (savePath.isEmpty()) {
+        return; // user cancelled
+    }
+
+    // 3️⃣ Copy demo file to user's selected location
+    if (QFile::copy(demoFilePath, savePath)) {
+        QMessageBox::information(this, "Success", "Demo catalog downloaded successfully!");
+    } else {
+        QMessageBox::warning(this, "Error", "Failed to download demo catalog. File may already exist or path is invalid.");
+    }
+}
+
+
+void AddCatalog::on_bulk_import_button_clicked()
+{
+    QString excelPath = QFileDialog::getOpenFileName(this, "Select Excel File","","Excel Files (*.xlsx)");
+    if(excelPath.isEmpty())
+        return ;
+
+    if (DatabaseUtils::excelBulkInsertCatalog(excelPath)){
+        QMessageBox::information(this, "Success", "Bulk import completed successfully") ;
+    } else {
+        QMessageBox::critical(this, "Error", "Bulk import failed!") ;
+    }
+
 }
 
