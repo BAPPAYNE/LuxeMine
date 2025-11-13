@@ -4,10 +4,11 @@
 #include <QStyleFactory>
 
 #include "mainwindow.h"
+#include "megaminemainwindow.h"
 
 int main(int argc, char *argv[])
 {
-    // ⚡ Add this BEFORE QApplication
+    // Add this BEFORE QApplication
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
     QCoreApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
 
@@ -29,7 +30,8 @@ int main(int argc, char *argv[])
     lightPalette.setColor(QPalette::HighlightedText, Qt::white);
     a.setPalette(lightPalette);
 
-    MainWindow w;
+    // MainWindow w;
+    MegaMineMainWindow w;
 
     // Get screen size
     QRect screenGeometry = QGuiApplication::primaryScreen()->geometry();

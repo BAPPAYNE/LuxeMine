@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MegaMineMainWindow</class>
+ <widget class="QMainWindow" name="MegaMineMainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1053</width>
+    <height>762</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QMdiArea" name="mdiArea">
+      <property name="verticalScrollBarPolicy">
+       <enum>Qt::ScrollBarPolicy::ScrollBarAsNeeded</enum>
+      </property>
+      <property name="horizontalScrollBarPolicy">
+       <enum>Qt::ScrollBarPolicy::ScrollBarAsNeeded</enum>
+      </property>
+      <property name="sizeAdjustPolicy">
+       <enum>QAbstractScrollArea::SizeAdjustPolicy::AdjustToContents</enum>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QListView" name="listView">
+      <property name="maximumSize">
+       <size>
+        <width>300</width>
+        <height>16777215</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1053</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuAccount">
+    <property name="title">
+     <string>Account</string>
+    </property>
+    <addaction name="actionCreate_New"/>
+    <addaction name="actionUpdate_2"/>
+   </widget>
+   <widget class="QMenu" name="menuAdmin">
+    <property name="title">
+     <string>Admin</string>
+    </property>
+    <addaction name="actionShow_Image"/>
+    <addaction name="actionUpdate_Price"/>
+    <addaction name="actionAdd_Diamond"/>
+    <addaction name="actionJewellry_Menu"/>
+    <addaction name="actionOrder_Book_Users"/>
+    <addaction name="actionShow_Users"/>
+    <addaction name="actionOrder_List"/>
+   </widget>
+   <widget class="QMenu" name="menuOrder_Book">
+    <property name="title">
+     <string>Catalog</string>
+    </property>
+    <addaction name="actionAdd_Catalog"/>
+    <addaction name="actionModify_Catalog"/>
+    <addaction name="actionDelete_Catalog"/>
+   </widget>
+   <widget class="QMenu" name="menuOrder_Book_2">
+    <property name="title">
+     <string>Order Book</string>
+    </property>
+    <addaction name="actionOpen"/>
+   </widget>
+   <widget class="QMenu" name="menuUser_Order">
+    <property name="title">
+     <string>User Order</string>
+    </property>
+    <addaction name="actionOpen_2"/>
+   </widget>
+   <addaction name="menuAccount"/>
+   <addaction name="menuAdmin"/>
+   <addaction name="menuOrder_Book"/>
+   <addaction name="menuOrder_Book_2"/>
+   <addaction name="menuUser_Order"/>
+  </widget>
+  <action name="actionCreate_New">
+   <property name="text">
+    <string>Create New</string>
+   </property>
+  </action>
+  <action name="actionUpdate">
+   <property name="text">
+    <string>Update</string>
+   </property>
+  </action>
+  <action name="actionUpdate_2">
+   <property name="text">
+    <string>Update</string>
+   </property>
+  </action>
+  <action name="actionShow_Image">
+   <property name="text">
+    <string>Show Image</string>
+   </property>
+  </action>
+  <action name="actionUpdate_Price">
+   <property name="text">
+    <string>Update Price</string>
+   </property>
+  </action>
+  <action name="actionAdd_Diamond">
+   <property name="text">
+    <string>Add Diamond</string>
+   </property>
+  </action>
+  <action name="actionJewellry_Menu">
+   <property name="text">
+    <string>Jewellry Menu</string>
+   </property>
+  </action>
+  <action name="actionOrder_Book_Users">
+   <property name="text">
+    <string>Order Book Users</string>
+   </property>
+  </action>
+  <action name="actionShow_Users">
+   <property name="text">
+    <string>Show Users</string>
+   </property>
+  </action>
+  <action name="actionOrder_List">
+   <property name="text">
+    <string>Order List</string>
+   </property>
+  </action>
+  <action name="actionAdd_Catalog">
+   <property name="text">
+    <string>Add Catalog</string>
+   </property>
+  </action>
+  <action name="actionModify_Catalog">
+   <property name="text">
+    <string>Modify Catalog</string>
+   </property>
+  </action>
+  <action name="actionDelete_Catalog">
+   <property name="text">
+    <string>Delete Catalog</string>
+   </property>
+  </action>
+  <action name="actionOpen">
+   <property name="text">
+    <string>Open</string>
+   </property>
+  </action>
+  <action name="actionOpen_2">
+   <property name="text">
+    <string>Open</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -27,6 +27,7 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     managegold.cpp \
+    megaminemainwindow.cpp \
     orderlist.cpp \
     ordermenu.cpp \
     pch.cpp \
@@ -50,6 +51,7 @@ HEADERS += \
     loginwindow.h \
     mainwindow.h \
     managegold.h \
+    megaminemainwindow.h \
     orderlist.h \
     ordermenu.h \
     pch.h \
@@ -68,6 +70,7 @@ FORMS += \
     loginwindow.ui \
     mainwindow.ui \
     managegold.ui \
+    megaminemainwindow.ui \
     orderlist.ui \
     ordermenu.ui \
     pdflistdialog.ui \
