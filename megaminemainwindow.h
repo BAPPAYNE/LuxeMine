@@ -8,6 +8,7 @@
 #include "loginwindow.h"
 #include "orderlist.h"
 #include "ordermenu.h"
+#include "accountcheckbox.h"
 #include "user.h"
 
 namespace Ui {
@@ -30,6 +31,7 @@ private slots:
     void openCatalogPage(int pageIndex);
     void openOrderBook();
     void openUser();
+    void openAccountCheckbox() ;
 
 private:
 
@@ -40,6 +42,7 @@ private:
     Admin *newAdmin = nullptr;
     AddCatalog *newAddCatalog = nullptr;
     User *newUser = nullptr;
+    AccountCheckbox *newAccountCheckbox = nullptr ;
 
 
 

@@ -61,6 +61,10 @@ MegaMineMainWindow::MegaMineMainWindow(QWidget *parent)
     connect(ui->actionOpen_2, &QAction::triggered, this, [this]() {
        openUser();
     });
+
+    connect(ui->actionAccount_Checkbox, &QAction::triggered, this, [this](){
+        openAccountCheckbox() ;
+    }) ;
 }
 
 void MegaMineMainWindow::openAdminPage(int pageIndex)
@@ -75,7 +79,7 @@ void MegaMineMainWindow::openAdminPage(int pageIndex)
         subWindow->setAttribute(Qt::WA_DeleteOnClose);
 
         ui->mdiArea->setActiveSubWindow(subWindow);
-        subWindow->showMaximized();  // ✅ maximize the subwindow itself
+        subWindow->showMaximized();  // maximize the subwindow itself
     }
 
     newAdmin->raise();
@@ -105,7 +109,7 @@ void MegaMineMainWindow::openCatalogPage(int pageIndex)
         // Activate and show inside MDI
         ui->mdiArea->setActiveSubWindow(subWindow);
 
-        // ✅ Maximize the subwindow (not the child)
+        // Maximize the subwindow (not the child)
         subWindow->showMaximized();
     }
 
@@ -234,6 +238,26 @@ void MegaMineMainWindow::updateMdiBackground()
     qDebug() << mdiAreaSize;
 
     ui->mdiArea->setBackground(QBrush(scaledBg));
+}
+
+void MegaMineMainWindow::openAccountCheckbox() {
+    if (!newAccountCheckbox || newAccountCheckbox->isHidden()) {
+        newAccountCheckbox = new AccountCheckbox() ;
+        newAccountCheckbox->setAttribute(Qt::WA_DeleteOnClose) ;
+        connect(newAccountCheckbox, &QObject::destroyed, this, [this]() {
+            newAccountCheckbox = nullptr ;
+        }) ;
+        QMdiSubWindow *subWindow = ui->mdiArea->addSubWindow(newAccountCheckbox) ;
+        subWindow->setWindowTitle("Account Checkbox") ;
+        subWindow->setAttribute(Qt::WA_DeleteOnClose) ;
+        ui->mdiArea->setActiveSubWindow(subWindow) ;
+        newAccountCheckbox->resize(ui->mdiArea->size()) ;
+        subWindow->showMaximized() ;
+    }
+
+    newAccountCheckbox->raise() ;
+    newAccountCheckbox->activateWindow() ;
+    newAccountCheckbox->showMaximized() ;
 }
 
 void MegaMineMainWindow::resizeEvent(QResizeEvent *event)

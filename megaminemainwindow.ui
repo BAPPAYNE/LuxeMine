@@ -46,7 +46,7 @@
      <x>0</x>
      <y>0</y>
      <width>1053</width>
-     <height>21</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuAccount">
@@ -55,6 +55,7 @@
     </property>
     <addaction name="actionCreate_New"/>
     <addaction name="actionUpdate_2"/>
+    <addaction name="actionAccount_Checkbox"/>
    </widget>
    <widget class="QMenu" name="menuAdmin">
     <property name="title">
@@ -167,6 +168,11 @@
   <action name="actionOpen_2">
    <property name="text">
     <string>Open</string>
+   </property>
+  </action>
+  <action name="actionAccount_Checkbox">
+   <property name="text">
+    <string>Account Checkbox</string>
    </property>
   </action>
  </widget>

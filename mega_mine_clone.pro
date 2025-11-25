@@ -13,6 +13,7 @@ PRECOMPILED_HEADER = pch.h
 
 
 SOURCES += \
+    accountcheckbox.cpp \
     addcatalog.cpp \
     admin.cpp \
     adminmenubuttons.cpp \
@@ -38,6 +39,7 @@ SOURCES += \
     utils.cpp
 
 HEADERS += \
+    accountcheckbox.h \
     addcatalog.h \
     admin.h \
     adminmenubuttons.h \
@@ -62,6 +64,7 @@ HEADERS += \
     utils.h
 
 FORMS += \
+    accountcheckbox.ui \
     addcatalog.ui \
     admin.ui \
     adminmenubuttons.ui \
