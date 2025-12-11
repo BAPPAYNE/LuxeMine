@@ -1,0 +1,3726 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>AccountCheckbox</class>
+ <widget class="QDialog" name="AccountCheckbox">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1197</width>
+    <height>856</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QDialog {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+                                stop:0 #f8f9fa, 
+                                stop:1 #C7DFFF);
+}</string>
+  </property>
+  <widget class="QCheckBox" name="checkBox_account_name">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>80</y>
+     <width>131</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QCheckBox {
+    spacing: 6px;
+    padding: 3px;
+    font-size: 11pt;
+    color: #1F406E;
+    background-color: transparent;
+}
+
+QCheckBox:hover {
+	color: #0b2436;
+}
+
+QCheckBox::indicator {
+    width: 16px;
+    height: 16px;
+    border: 1px solid #95a5a6;
+    background-color: #ffffff;
+    border-radius: 2px;
+}
+
+QCheckBox::indicator:hover {
+    border: 1px solid #3498db;
+    background-color: #ecf0f1;
+}
+
+QCheckBox::indicator:pressed {
+    background-color: #d5dbdb;
+}
+
+QCheckBox::indicator:checked {
+    background-color: #f2f2f2;
+    border: 1px solid #2980b9;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:hover {
+    background-color: #f2f2f2;
+    border: 1px solid #21618c;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:pressed {
+    background-color: #f2f2f2;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:disabled {
+    background-color: #afafb3;
+    border: 1px solid #bdc3c7;
+}
+
+QCheckBox::indicator:checked:disabled {
+    background-color: #95a5a6;
+    border: 1px solid #7f8c8d;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox:disabled {
+    color: #95a5a6;
+}</string>
+   </property>
+   <property name="text">
+    <string>Account Name</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_Print_name">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>110</y>
+     <width>121</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QCheckBox {
+    spacing: 6px;
+    padding: 3px;
+    font-size: 11pt;
+    color: #1F406E;
+    background-color: transparent;
+}
+
+QCheckBox:hover {
+	color: #0b2436;
+}
+
+QCheckBox::indicator {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #95a5a6;
+    background-color: #ffffff;
+    border-radius: 2px;
+}
+
+QCheckBox::indicator:hover {
+    border: 1px solid #3498db;
+    background-color: #ecf0f1;
+}
+
+QCheckBox::indicator:pressed {
+    background-color: #d5dbdb;
+}
+
+QCheckBox::indicator:checked {
+    background-color: #f2f2f2;
+    border: 1px solid #2980b9;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:hover {
+    background-color: #f2f2f2;
+    border: 1px solid #21618c;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:pressed {
+    background-color: #f2f2f2;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:disabled {
+    background-color: #afafb3;
+    border: 1px solid #bdc3c7;
+}
+
+QCheckBox::indicator:checked:disabled {
+    background-color: #95a5a6;
+    border: 1px solid #7f8c8d;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox:disabled {
+    color: #95a5a6;
+}</string>
+   </property>
+   <property name="text">
+    <string>Print Name</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_group">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>130</y>
+     <width>101</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QCheckBox {
+    spacing: 6px;
+    padding: 3px;
+    font-size: 11pt;
+    color: #1F406E;
+    background-color: transparent;
+}
+
+QCheckBox:hover {
+	color: #0b2436;
+}
+
+QCheckBox::indicator {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #95a5a6;
+    background-color: #ffffff;
+    border-radius: 2px;
+}
+
+QCheckBox::indicator:hover {
+    border: 1px solid #3498db;
+    background-color: #ecf0f1;
+}
+
+QCheckBox::indicator:pressed {
+    background-color: #d5dbdb;
+}
+
+QCheckBox::indicator:checked {
+    background-color: #f2f2f2;
+    border: 1px solid #2980b9;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:hover {
+    background-color: #f2f2f2;
+    border: 1px solid #21618c;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:pressed {
+    background-color: #f2f2f2;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:disabled {
+    background-color: #afafb3;
+    border: 1px solid #bdc3c7;
+}
+
+QCheckBox::indicator:checked:disabled {
+    background-color: #95a5a6;
+    border: 1px solid #7f8c8d;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox:disabled {
+    color: #95a5a6;
+}</string>
+   </property>
+   <property name="text">
+    <string>Group</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_opening_balance">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>160</y>
+     <width>151</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QCheckBox {
+    spacing: 6px;
+    padding: 3px;
+    font-size: 11pt;
+    color: #1F406E;
+    background-color: transparent;
+}
+
+QCheckBox:hover {
+	color: #0b2436;
+}
+
+QCheckBox::indicator {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #95a5a6;
+    background-color: #ffffff;
+    border-radius: 2px;
+}
+
+QCheckBox::indicator:hover {
+    border: 1px solid #3498db;
+    background-color: #ecf0f1;
+}
+
+QCheckBox::indicator:pressed {
+    background-color: #d5dbdb;
+}
+
+QCheckBox::indicator:checked {
+    background-color: #f2f2f2;
+    border: 1px solid #2980b9;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:hover {
+    background-color: #f2f2f2;
+    border: 1px solid #21618c;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:pressed {
+    background-color: #f2f2f2;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:disabled {
+    background-color: #afafb3;
+    border: 1px solid #bdc3c7;
+}
+
+QCheckBox::indicator:checked:disabled {
+    background-color: #95a5a6;
+    border: 1px solid #7f8c8d;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox:disabled {
+    color: #95a5a6;
+}</string>
+   </property>
+   <property name="text">
+    <string>Opening Balance</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_opening_balance_info">
+   <property name="geometry">
+    <rect>
+     <x>230</x>
+     <y>170</y>
+     <width>21</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+    background-color: #F3F3F3;
+    border: 1px solid #2A4E7C;
+    border-radius: 2px;
+    color: #2C2C2C;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+QPushButton:hover {
+    background-color: #93b7e1;
+}
+
+QPushButton:pressed {
+    background-color: #DADADA;
+    border: 1px solid #666;
+}
+
+QPushButton:disabled {
+    background-color: #F0F0F0;
+    color: #A0A0A0;
+    border: 1px solid #D0D0D0;
+}</string>
+   </property>
+   <property name="text">
+    <string>i</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="text_opening_balance_info">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>160</y>
+     <width>211</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QTextEdit {
+    background-color: #F7F7F7;
+    border: 1px solid #95a5a6;
+    border-radius: 2px;
+    font-size: 11pt;
+    color: #1F406E;
+    selection-background-color: #3498db;
+    selection-color: #ffffff;
+}
+
+QTextEdit:focus {
+    border: 1px solid #3498db;
+}
+
+QScrollBar:vertical,
+QScrollBar:horizontal {
+    width: 0px;
+    height: 0px;
+    background: transparent;
+}</string>
+   </property>
+   <property name="html">
+    <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+hr { height: 1px; border-width: 0; }
+li.unchecked::marker { content: &quot;\2610&quot;; }
+li.checked::marker { content: &quot;\2612&quot;; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Segoe UI'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;This field has Gold, Silver and Amount (Credit/Debit) details.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_type">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>190</y>
+     <width>111</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QCheckBox {
+    spacing: 6px;
+    padding: 3px;
+    font-size: 11pt;
+    color: #1F406E;
+    background-color: transparent;
+}
+
+QCheckBox:hover {
+	color: #0b2436;
+}
+
+QCheckBox::indicator {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #95a5a6;
+    background-color: #ffffff;
+    border-radius: 2px;
+}
+
+QCheckBox::indicator:hover {
+    border: 1px solid #3498db;
+    background-color: #ecf0f1;
+}
+
+QCheckBox::indicator:pressed {
+    background-color: #d5dbdb;
+}
+
+QCheckBox::indicator:checked {
+    background-color: #f2f2f2;
+    border: 1px solid #2980b9;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:hover {
+    background-color: #f2f2f2;
+    border: 1px solid #21618c;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:pressed {
+    background-color: #f2f2f2;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:disabled {
+    background-color: #afafb3;
+    border: 1px solid #bdc3c7;
+}
+
+QCheckBox::indicator:checked:disabled {
+    background-color: #95a5a6;
+    border: 1px solid #7f8c8d;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox:disabled {
+    color: #95a5a6;
+}</string>
+   </property>
+   <property name="text">
+    <string>Type</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_gst_in">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>230</y>
+     <width>111</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QCheckBox {
+    spacing: 6px;
+    padding: 3px;
+    font-size: 11pt;
+    color: #1F406E;
+    background-color: transparent;
+}
+
+QCheckBox:hover {
+	color: #0b2436;
+}
+
+QCheckBox::indicator {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #95a5a6;
+    background-color: #ffffff;
+    border-radius: 2px;
+}
+
+QCheckBox::indicator:hover {
+    border: 1px solid #3498db;
+    background-color: #ecf0f1;
+}
+
+QCheckBox::indicator:pressed {
+    background-color: #d5dbdb;
+}
+
+QCheckBox::indicator:checked {
+    background-color: #f2f2f2;
+    border: 1px solid #2980b9;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:hover {
+    background-color: #f2f2f2;
+    border: 1px solid #21618c;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:pressed {
+    background-color: #f2f2f2;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:disabled {
+    background-color: #afafb3;
+    border: 1px solid #bdc3c7;
+}
+
+QCheckBox::indicator:checked:disabled {
+    background-color: #95a5a6;
+    border: 1px solid #7f8c8d;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox:disabled {
+    color: #95a5a6;
+}</string>
+   </property>
+   <property name="text">
+    <string>GST in</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_hm_number">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>260</y>
+     <width>121</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QCheckBox {
+    spacing: 6px;
+    padding: 3px;
+    font-size: 11pt;
+    color: #1F406E;
+    background-color: transparent;
+}
+
+QCheckBox:hover {
+	color: #0b2436;
+}
+
+QCheckBox::indicator {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #95a5a6;
+    background-color: #ffffff;
+    border-radius: 2px;
+}
+
+QCheckBox::indicator:hover {
+    border: 1px solid #3498db;
+    background-color: #ecf0f1;
+}
+
+QCheckBox::indicator:pressed {
+    background-color: #d5dbdb;
+}
+
+QCheckBox::indicator:checked {
+    background-color: #f2f2f2;
+    border: 1px solid #2980b9;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:hover {
+    background-color: #f2f2f2;
+    border: 1px solid #21618c;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:pressed {
+    background-color: #f2f2f2;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:disabled {
+    background-color: #afafb3;
+    border: 1px solid #bdc3c7;
+}
+
+QCheckBox::indicator:checked:disabled {
+    background-color: #95a5a6;
+    border: 1px solid #7f8c8d;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox:disabled {
+    color: #95a5a6;
+}</string>
+   </property>
+   <property name="text">
+    <string>HM Number</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_pan_number">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>290</y>
+     <width>131</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QCheckBox {
+    spacing: 6px;
+    padding: 3px;
+    font-size: 11pt;
+    color: #1F406E;
+    background-color: transparent;
+}
+
+QCheckBox:hover {
+	color: #0b2436;
+}
+
+QCheckBox::indicator {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #95a5a6;
+    background-color: #ffffff;
+    border-radius: 2px;
+}
+
+QCheckBox::indicator:hover {
+    border: 1px solid #3498db;
+    background-color: #ecf0f1;
+}
+
+QCheckBox::indicator:pressed {
+    background-color: #d5dbdb;
+}
+
+QCheckBox::indicator:checked {
+    background-color: #f2f2f2;
+    border: 1px solid #2980b9;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:hover {
+    background-color: #f2f2f2;
+    border: 1px solid #21618c;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:pressed {
+    background-color: #f2f2f2;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:disabled {
+    background-color: #afafb3;
+    border: 1px solid #bdc3c7;
+}
+
+QCheckBox::indicator:checked:disabled {
+    background-color: #95a5a6;
+    border: 1px solid #7f8c8d;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox:disabled {
+    color: #95a5a6;
+}</string>
+   </property>
+   <property name="text">
+    <string>PAN Number</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_tan_number">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>320</y>
+     <width>131</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QCheckBox {
+    spacing: 6px;
+    padding: 3px;
+    font-size: 11pt;
+    color: #1F406E;
+    background-color: transparent;
+}
+
+QCheckBox:hover {
+	color: #0b2436;
+}
+
+QCheckBox::indicator {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #95a5a6;
+    background-color: #ffffff;
+    border-radius: 2px;
+}
+
+QCheckBox::indicator:hover {
+    border: 1px solid #3498db;
+    background-color: #ecf0f1;
+}
+
+QCheckBox::indicator:pressed {
+    background-color: #d5dbdb;
+}
+
+QCheckBox::indicator:checked {
+    background-color: #f2f2f2;
+    border: 1px solid #2980b9;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:hover {
+    background-color: #f2f2f2;
+    border: 1px solid #21618c;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:pressed {
+    background-color: #f2f2f2;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:disabled {
+    background-color: #afafb3;
+    border: 1px solid #bdc3c7;
+}
+
+QCheckBox::indicator:checked:disabled {
+    background-color: #95a5a6;
+    border: 1px solid #7f8c8d;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox:disabled {
+    color: #95a5a6;
+}</string>
+   </property>
+   <property name="text">
+    <string>TAN Number</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_msme">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>350</y>
+     <width>111</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QCheckBox {
+    spacing: 6px;
+    padding: 3px;
+    font-size: 11pt;
+    color: #1F406E;
+    background-color: transparent;
+}
+
+QCheckBox:hover {
+	color: #0b2436;
+}
+
+QCheckBox::indicator {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #95a5a6;
+    background-color: #ffffff;
+    border-radius: 2px;
+}
+
+QCheckBox::indicator:hover {
+    border: 1px solid #3498db;
+    background-color: #ecf0f1;
+}
+
+QCheckBox::indicator:pressed {
+    background-color: #d5dbdb;
+}
+
+QCheckBox::indicator:checked {
+    background-color: #f2f2f2;
+    border: 1px solid #2980b9;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:hover {
+    background-color: #f2f2f2;
+    border: 1px solid #21618c;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:pressed {
+    background-color: #f2f2f2;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:disabled {
+    background-color: #afafb3;
+    border: 1px solid #bdc3c7;
+}
+
+QCheckBox::indicator:checked:disabled {
+    background-color: #95a5a6;
+    border: 1px solid #7f8c8d;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox:disabled {
+    color: #95a5a6;
+}</string>
+   </property>
+   <property name="text">
+    <string>MSME</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_tds_type">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>370</y>
+     <width>111</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QCheckBox {
+    spacing: 6px;
+    padding: 3px;
+    font-size: 11pt;
+    color: #1F406E;
+    background-color: transparent;
+}
+
+QCheckBox:hover {
+	color: #0b2436;
+}
+
+QCheckBox::indicator {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #95a5a6;
+    background-color: #ffffff;
+    border-radius: 2px;
+}
+
+QCheckBox::indicator:hover {
+    border: 1px solid #3498db;
+    background-color: #ecf0f1;
+}
+
+QCheckBox::indicator:pressed {
+    background-color: #d5dbdb;
+}
+
+QCheckBox::indicator:checked {
+    background-color: #f2f2f2;
+    border: 1px solid #2980b9;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:hover {
+    background-color: #f2f2f2;
+    border: 1px solid #21618c;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:pressed {
+    background-color: #f2f2f2;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:disabled {
+    background-color: #afafb3;
+    border: 1px solid #bdc3c7;
+}
+
+QCheckBox::indicator:checked:disabled {
+    background-color: #95a5a6;
+    border: 1px solid #7f8c8d;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox:disabled {
+    color: #95a5a6;
+}</string>
+   </property>
+   <property name="text">
+    <string>TDS Type</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_tcs">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>410</y>
+     <width>111</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QCheckBox {
+    spacing: 6px;
+    padding: 3px;
+    font-size: 11pt;
+    color: #1F406E;
+    background-color: transparent;
+}
+
+QCheckBox:hover {
+	color: #0b2436;
+}
+
+QCheckBox::indicator {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #95a5a6;
+    background-color: #ffffff;
+    border-radius: 2px;
+}
+
+QCheckBox::indicator:hover {
+    border: 1px solid #3498db;
+    background-color: #ecf0f1;
+}
+
+QCheckBox::indicator:pressed {
+    background-color: #d5dbdb;
+}
+
+QCheckBox::indicator:checked {
+    background-color: #f2f2f2;
+    border: 1px solid #2980b9;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:hover {
+    background-color: #f2f2f2;
+    border: 1px solid #21618c;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:pressed {
+    background-color: #f2f2f2;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:disabled {
+    background-color: #afafb3;
+    border: 1px solid #bdc3c7;
+}
+
+QCheckBox::indicator:checked:disabled {
+    background-color: #95a5a6;
+    border: 1px solid #7f8c8d;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox:disabled {
+    color: #95a5a6;
+}</string>
+   </property>
+   <property name="text">
+    <string>TCS</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_tds">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>440</y>
+     <width>111</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QCheckBox {
+    spacing: 6px;
+    padding: 3px;
+    font-size: 11pt;
+    color: #1F406E;
+    background-color: transparent;
+}
+
+QCheckBox:hover {
+	color: #0b2436;
+}
+
+QCheckBox::indicator {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #95a5a6;
+    background-color: #ffffff;
+    border-radius: 2px;
+}
+
+QCheckBox::indicator:hover {
+    border: 1px solid #3498db;
+    background-color: #ecf0f1;
+}
+
+QCheckBox::indicator:pressed {
+    background-color: #d5dbdb;
+}
+
+QCheckBox::indicator:checked {
+    background-color: #f2f2f2;
+    border: 1px solid #2980b9;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:hover {
+    background-color: #f2f2f2;
+    border: 1px solid #21618c;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:pressed {
+    background-color: #f2f2f2;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:disabled {
+    background-color: #afafb3;
+    border: 1px solid #bdc3c7;
+}
+
+QCheckBox::indicator:checked:disabled {
+    background-color: #95a5a6;
+    border: 1px solid #7f8c8d;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox:disabled {
+    color: #95a5a6;
+}</string>
+   </property>
+   <property name="text">
+    <string>TDS</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_ui_number">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>470</y>
+     <width>131</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QCheckBox {
+    spacing: 6px;
+    padding: 3px;
+    font-size: 11pt;
+    color: #1F406E;
+    background-color: transparent;
+}
+
+QCheckBox:hover {
+	color: #0b2436;
+}
+
+QCheckBox::indicator {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #95a5a6;
+    background-color: #ffffff;
+    border-radius: 2px;
+}
+
+QCheckBox::indicator:hover {
+    border: 1px solid #3498db;
+    background-color: #ecf0f1;
+}
+
+QCheckBox::indicator:pressed {
+    background-color: #d5dbdb;
+}
+
+QCheckBox::indicator:checked {
+    background-color: #f2f2f2;
+    border: 1px solid #2980b9;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:hover {
+    background-color: #f2f2f2;
+    border: 1px solid #21618c;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:pressed {
+    background-color: #f2f2f2;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:disabled {
+    background-color: #afafb3;
+    border: 1px solid #bdc3c7;
+}
+
+QCheckBox::indicator:checked:disabled {
+    background-color: #95a5a6;
+    border: 1px solid #7f8c8d;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox:disabled {
+    color: #95a5a6;
+}</string>
+   </property>
+   <property name="text">
+    <string>UID Number</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_cst_number">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>500</y>
+     <width>121</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QCheckBox {
+    spacing: 6px;
+    padding: 3px;
+    font-size: 11pt;
+    color: #1F406E;
+    background-color: transparent;
+}
+
+QCheckBox:hover {
+	color: #0b2436;
+}
+
+QCheckBox::indicator {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #95a5a6;
+    background-color: #ffffff;
+    border-radius: 2px;
+}
+
+QCheckBox::indicator:hover {
+    border: 1px solid #3498db;
+    background-color: #ecf0f1;
+}
+
+QCheckBox::indicator:pressed {
+    background-color: #d5dbdb;
+}
+
+QCheckBox::indicator:checked {
+    background-color: #f2f2f2;
+    border: 1px solid #2980b9;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:hover {
+    background-color: #f2f2f2;
+    border: 1px solid #21618c;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:pressed {
+    background-color: #f2f2f2;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:disabled {
+    background-color: #afafb3;
+    border: 1px solid #bdc3c7;
+}
+
+QCheckBox::indicator:checked:disabled {
+    background-color: #95a5a6;
+    border: 1px solid #7f8c8d;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox:disabled {
+    color: #95a5a6;
+}</string>
+   </property>
+   <property name="text">
+    <string>CST Number</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_ecom">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>530</y>
+     <width>111</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QCheckBox {
+    spacing: 6px;
+    padding: 3px;
+    font-size: 11pt;
+    color: #1F406E;
+    background-color: transparent;
+}
+
+QCheckBox:hover {
+	color: #0b2436;
+}
+
+QCheckBox::indicator {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #95a5a6;
+    background-color: #ffffff;
+    border-radius: 2px;
+}
+
+QCheckBox::indicator:hover {
+    border: 1px solid #3498db;
+    background-color: #ecf0f1;
+}
+
+QCheckBox::indicator:pressed {
+    background-color: #d5dbdb;
+}
+
+QCheckBox::indicator:checked {
+    background-color: #f2f2f2;
+    border: 1px solid #2980b9;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:hover {
+    background-color: #f2f2f2;
+    border: 1px solid #21618c;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:pressed {
+    background-color: #f2f2f2;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:disabled {
+    background-color: #afafb3;
+    border: 1px solid #bdc3c7;
+}
+
+QCheckBox::indicator:checked:disabled {
+    background-color: #95a5a6;
+    border: 1px solid #7f8c8d;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox:disabled {
+    color: #95a5a6;
+}</string>
+   </property>
+   <property name="text">
+    <string>E. Com</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_bank_name">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>80</y>
+     <width>111</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QCheckBox {
+    spacing: 6px;
+    padding: 3px;
+    font-size: 11pt;
+    color: #1F406E;
+    background-color: transparent;
+}
+
+QCheckBox:hover {
+	color: #0b2436;
+}
+
+QCheckBox::indicator {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #95a5a6;
+    background-color: #ffffff;
+    border-radius: 2px;
+}
+
+QCheckBox::indicator:hover {
+    border: 1px solid #3498db;
+    background-color: #ecf0f1;
+}
+
+QCheckBox::indicator:pressed {
+    background-color: #d5dbdb;
+}
+
+QCheckBox::indicator:checked {
+    background-color: #f2f2f2;
+    border: 1px solid #2980b9;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:hover {
+    background-color: #f2f2f2;
+    border: 1px solid #21618c;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:pressed {
+    background-color: #f2f2f2;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:disabled {
+    background-color: #afafb3;
+    border: 1px solid #bdc3c7;
+}
+
+QCheckBox::indicator:checked:disabled {
+    background-color: #95a5a6;
+    border: 1px solid #7f8c8d;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox:disabled {
+    color: #95a5a6;
+}</string>
+   </property>
+   <property name="text">
+    <string>Name</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_bank_details">
+   <property name="geometry">
+    <rect>
+     <x>250</x>
+     <y>40</y>
+     <width>121</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel {
+    color: #0b2436;
+    font-size: 16px;
+    font-weight: 600;
+    background: transparent;
+    padding: 2px;
+}
+
+QLabel[highlight=&quot;true&quot;] {
+    color: #c0392b;
+    font-weight: 600;
+}
+
+QLabel[dim=&quot;true&quot;] {
+    color: #7f8c8d;
+    font-style: italic;
+}</string>
+   </property>
+   <property name="text">
+    <string>Bank Details</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_ac_no">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>110</y>
+     <width>111</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QCheckBox {
+    spacing: 6px;
+    padding: 3px;
+    font-size: 11pt;
+    color: #1F406E;
+    background-color: transparent;
+}
+
+QCheckBox:hover {
+	color: #0b2436;
+}
+
+QCheckBox::indicator {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #95a5a6;
+    background-color: #ffffff;
+    border-radius: 2px;
+}
+
+QCheckBox::indicator:hover {
+    border: 1px solid #3498db;
+    background-color: #ecf0f1;
+}
+
+QCheckBox::indicator:pressed {
+    background-color: #d5dbdb;
+}
+
+QCheckBox::indicator:checked {
+    background-color: #f2f2f2;
+    border: 1px solid #2980b9;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:hover {
+    background-color: #f2f2f2;
+    border: 1px solid #21618c;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:pressed {
+    background-color: #f2f2f2;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:disabled {
+    background-color: #afafb3;
+    border: 1px solid #bdc3c7;
+}
+
+QCheckBox::indicator:checked:disabled {
+    background-color: #95a5a6;
+    border: 1px solid #7f8c8d;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox:disabled {
+    color: #95a5a6;
+}</string>
+   </property>
+   <property name="text">
+    <string>A/C No.</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_ifsc_code">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>140</y>
+     <width>111</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QCheckBox {
+    spacing: 6px;
+    padding: 3px;
+    font-size: 11pt;
+    color: #1F406E;
+    background-color: transparent;
+}
+
+QCheckBox:hover {
+	color: #0b2436;
+}
+
+QCheckBox::indicator {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #95a5a6;
+    background-color: #ffffff;
+    border-radius: 2px;
+}
+
+QCheckBox::indicator:hover {
+    border: 1px solid #3498db;
+    background-color: #ecf0f1;
+}
+
+QCheckBox::indicator:pressed {
+    background-color: #d5dbdb;
+}
+
+QCheckBox::indicator:checked {
+    background-color: #f2f2f2;
+    border: 1px solid #2980b9;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:hover {
+    background-color: #f2f2f2;
+    border: 1px solid #21618c;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:pressed {
+    background-color: #f2f2f2;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:disabled {
+    background-color: #afafb3;
+    border: 1px solid #bdc3c7;
+}
+
+QCheckBox::indicator:checked:disabled {
+    background-color: #95a5a6;
+    border: 1px solid #7f8c8d;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox:disabled {
+    color: #95a5a6;
+}</string>
+   </property>
+   <property name="text">
+    <string>IFSC Code</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_user_ac_details">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>40</y>
+     <width>131</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel {
+    color: #0b2436;
+    font-size: 16px;
+    font-weight: 600;
+    background: transparent;
+    padding: 2px;
+}
+
+QLabel[highlight=&quot;true&quot;] {
+    color: #c0392b;
+    font-weight: 600;
+}
+
+QLabel[dim=&quot;true&quot;] {
+    color: #7f8c8d;
+    font-style: italic;
+}</string>
+   </property>
+   <property name="text">
+    <string>User A/C Details</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_ac_details">
+   <property name="geometry">
+    <rect>
+     <x>400</x>
+     <y>40</y>
+     <width>121</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel {
+    color: #0b2436;
+    font-size: 16px;
+    font-weight: 600;
+    background: transparent;
+    padding: 2px;
+}
+
+QLabel[highlight=&quot;true&quot;] {
+    color: #c0392b;
+    font-weight: 600;
+}
+
+QLabel[dim=&quot;true&quot;] {
+    color: #7f8c8d;
+    font-style: italic;
+}</string>
+   </property>
+   <property name="text">
+    <string>A/C Details</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_ac_address">
+   <property name="geometry">
+    <rect>
+     <x>410</x>
+     <y>80</y>
+     <width>111</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QCheckBox {
+    spacing: 6px;
+    padding: 3px;
+    font-size: 11pt;
+    color: #1F406E;
+    background-color: transparent;
+}
+
+QCheckBox:hover {
+	color: #0b2436;
+}
+
+QCheckBox::indicator {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #95a5a6;
+    background-color: #ffffff;
+    border-radius: 2px;
+}
+
+QCheckBox::indicator:hover {
+    border: 1px solid #3498db;
+    background-color: #ecf0f1;
+}
+
+QCheckBox::indicator:pressed {
+    background-color: #d5dbdb;
+}
+
+QCheckBox::indicator:checked {
+    background-color: #f2f2f2;
+    border: 1px solid #2980b9;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:hover {
+    background-color: #f2f2f2;
+    border: 1px solid #21618c;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:pressed {
+    background-color: #f2f2f2;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:disabled {
+    background-color: #afafb3;
+    border: 1px solid #bdc3c7;
+}
+
+QCheckBox::indicator:checked:disabled {
+    background-color: #95a5a6;
+    border: 1px solid #7f8c8d;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox:disabled {
+    color: #95a5a6;
+}</string>
+   </property>
+   <property name="text">
+    <string>Address</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_ac_location">
+   <property name="geometry">
+    <rect>
+     <x>410</x>
+     <y>110</y>
+     <width>111</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QCheckBox {
+    spacing: 6px;
+    padding: 3px;
+    font-size: 11pt;
+    color: #1F406E;
+    background-color: transparent;
+}
+
+QCheckBox:hover {
+	color: #0b2436;
+}
+
+QCheckBox::indicator {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #95a5a6;
+    background-color: #ffffff;
+    border-radius: 2px;
+}
+
+QCheckBox::indicator:hover {
+    border: 1px solid #3498db;
+    background-color: #ecf0f1;
+}
+
+QCheckBox::indicator:pressed {
+    background-color: #d5dbdb;
+}
+
+QCheckBox::indicator:checked {
+    background-color: #f2f2f2;
+    border: 1px solid #2980b9;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:hover {
+    background-color: #f2f2f2;
+    border: 1px solid #21618c;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:pressed {
+    background-color: #f2f2f2;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:disabled {
+    background-color: #afafb3;
+    border: 1px solid #bdc3c7;
+}
+
+QCheckBox::indicator:checked:disabled {
+    background-color: #95a5a6;
+    border: 1px solid #7f8c8d;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox:disabled {
+    color: #95a5a6;
+}</string>
+   </property>
+   <property name="text">
+    <string>Location</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_ac_city">
+   <property name="geometry">
+    <rect>
+     <x>410</x>
+     <y>130</y>
+     <width>111</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QCheckBox {
+    spacing: 6px;
+    padding: 3px;
+    font-size: 11pt;
+    color: #1F406E;
+    background-color: transparent;
+}
+
+QCheckBox:hover {
+	color: #0b2436;
+}
+
+QCheckBox::indicator {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #95a5a6;
+    background-color: #ffffff;
+    border-radius: 2px;
+}
+
+QCheckBox::indicator:hover {
+    border: 1px solid #3498db;
+    background-color: #ecf0f1;
+}
+
+QCheckBox::indicator:pressed {
+    background-color: #d5dbdb;
+}
+
+QCheckBox::indicator:checked {
+    background-color: #f2f2f2;
+    border: 1px solid #2980b9;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:hover {
+    background-color: #f2f2f2;
+    border: 1px solid #21618c;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:pressed {
+    background-color: #f2f2f2;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:disabled {
+    background-color: #afafb3;
+    border: 1px solid #bdc3c7;
+}
+
+QCheckBox::indicator:checked:disabled {
+    background-color: #95a5a6;
+    border: 1px solid #7f8c8d;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox:disabled {
+    color: #95a5a6;
+}</string>
+   </property>
+   <property name="text">
+    <string>City</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_ac_pin">
+   <property name="geometry">
+    <rect>
+     <x>410</x>
+     <y>170</y>
+     <width>111</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QCheckBox {
+    spacing: 6px;
+    padding: 3px;
+    font-size: 11pt;
+    color: #1F406E;
+    background-color: transparent;
+}
+
+QCheckBox:hover {
+	color: #0b2436;
+}
+
+QCheckBox::indicator {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #95a5a6;
+    background-color: #ffffff;
+    border-radius: 2px;
+}
+
+QCheckBox::indicator:hover {
+    border: 1px solid #3498db;
+    background-color: #ecf0f1;
+}
+
+QCheckBox::indicator:pressed {
+    background-color: #d5dbdb;
+}
+
+QCheckBox::indicator:checked {
+    background-color: #f2f2f2;
+    border: 1px solid #2980b9;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:hover {
+    background-color: #f2f2f2;
+    border: 1px solid #21618c;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:pressed {
+    background-color: #f2f2f2;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:disabled {
+    background-color: #afafb3;
+    border: 1px solid #bdc3c7;
+}
+
+QCheckBox::indicator:checked:disabled {
+    background-color: #95a5a6;
+    border: 1px solid #7f8c8d;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox:disabled {
+    color: #95a5a6;
+}</string>
+   </property>
+   <property name="text">
+    <string>Pin</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_ac_phone">
+   <property name="geometry">
+    <rect>
+     <x>410</x>
+     <y>200</y>
+     <width>111</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QCheckBox {
+    spacing: 6px;
+    padding: 3px;
+    font-size: 11pt;
+    color: #1F406E;
+    background-color: transparent;
+}
+
+QCheckBox:hover {
+	color: #0b2436;
+}
+
+QCheckBox::indicator {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #95a5a6;
+    background-color: #ffffff;
+    border-radius: 2px;
+}
+
+QCheckBox::indicator:hover {
+    border: 1px solid #3498db;
+    background-color: #ecf0f1;
+}
+
+QCheckBox::indicator:pressed {
+    background-color: #d5dbdb;
+}
+
+QCheckBox::indicator:checked {
+    background-color: #f2f2f2;
+    border: 1px solid #2980b9;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:hover {
+    background-color: #f2f2f2;
+    border: 1px solid #21618c;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:pressed {
+    background-color: #f2f2f2;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:disabled {
+    background-color: #afafb3;
+    border: 1px solid #bdc3c7;
+}
+
+QCheckBox::indicator:checked:disabled {
+    background-color: #95a5a6;
+    border: 1px solid #7f8c8d;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox:disabled {
+    color: #95a5a6;
+}</string>
+   </property>
+   <property name="text">
+    <string>Phone</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_ac_occupation">
+   <property name="geometry">
+    <rect>
+     <x>410</x>
+     <y>220</y>
+     <width>111</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QCheckBox {
+    spacing: 6px;
+    padding: 3px;
+    font-size: 11pt;
+    color: #1F406E;
+    background-color: transparent;
+}
+
+QCheckBox:hover {
+	color: #0b2436;
+}
+
+QCheckBox::indicator {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #95a5a6;
+    background-color: #ffffff;
+    border-radius: 2px;
+}
+
+QCheckBox::indicator:hover {
+    border: 1px solid #3498db;
+    background-color: #ecf0f1;
+}
+
+QCheckBox::indicator:pressed {
+    background-color: #d5dbdb;
+}
+
+QCheckBox::indicator:checked {
+    background-color: #f2f2f2;
+    border: 1px solid #2980b9;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:hover {
+    background-color: #f2f2f2;
+    border: 1px solid #21618c;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:pressed {
+    background-color: #f2f2f2;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:disabled {
+    background-color: #afafb3;
+    border: 1px solid #bdc3c7;
+}
+
+QCheckBox::indicator:checked:disabled {
+    background-color: #95a5a6;
+    border: 1px solid #7f8c8d;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox:disabled {
+    color: #95a5a6;
+}</string>
+   </property>
+   <property name="text">
+    <string>Occupation</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_ac_state">
+   <property name="geometry">
+    <rect>
+     <x>410</x>
+     <y>260</y>
+     <width>151</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QCheckBox {
+    spacing: 6px;
+    padding: 3px;
+    font-size: 11pt;
+    color: #1F406E;
+    background-color: transparent;
+}
+
+QCheckBox:hover {
+	color: #0b2436;
+}
+
+QCheckBox::indicator {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #95a5a6;
+    background-color: #ffffff;
+    border-radius: 2px;
+}
+
+QCheckBox::indicator:hover {
+    border: 1px solid #3498db;
+    background-color: #ecf0f1;
+}
+
+QCheckBox::indicator:pressed {
+    background-color: #d5dbdb;
+}
+
+QCheckBox::indicator:checked {
+    background-color: #f2f2f2;
+    border: 1px solid #2980b9;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:hover {
+    background-color: #f2f2f2;
+    border: 1px solid #21618c;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:pressed {
+    background-color: #f2f2f2;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:disabled {
+    background-color: #afafb3;
+    border: 1px solid #bdc3c7;
+}
+
+QCheckBox::indicator:checked:disabled {
+    background-color: #95a5a6;
+    border: 1px solid #7f8c8d;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox:disabled {
+    color: #95a5a6;
+}</string>
+   </property>
+   <property name="text">
+    <string>State (With Code)</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_ac_country">
+   <property name="geometry">
+    <rect>
+     <x>410</x>
+     <y>280</y>
+     <width>121</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QCheckBox {
+    spacing: 6px;
+    padding: 3px;
+    font-size: 11pt;
+    color: #1F406E;
+    background-color: transparent;
+}
+
+QCheckBox:hover {
+	color: #0b2436;
+}
+
+QCheckBox::indicator {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #95a5a6;
+    background-color: #ffffff;
+    border-radius: 2px;
+}
+
+QCheckBox::indicator:hover {
+    border: 1px solid #3498db;
+    background-color: #ecf0f1;
+}
+
+QCheckBox::indicator:pressed {
+    background-color: #d5dbdb;
+}
+
+QCheckBox::indicator:checked {
+    background-color: #f2f2f2;
+    border: 1px solid #2980b9;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:hover {
+    background-color: #f2f2f2;
+    border: 1px solid #21618c;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:pressed {
+    background-color: #f2f2f2;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:disabled {
+    background-color: #afafb3;
+    border: 1px solid #bdc3c7;
+}
+
+QCheckBox::indicator:checked:disabled {
+    background-color: #95a5a6;
+    border: 1px solid #7f8c8d;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox:disabled {
+    color: #95a5a6;
+}</string>
+   </property>
+   <property name="text">
+    <string>Country</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_ac_mobile">
+   <property name="geometry">
+    <rect>
+     <x>410</x>
+     <y>320</y>
+     <width>121</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QCheckBox {
+    spacing: 6px;
+    padding: 3px;
+    font-size: 11pt;
+    color: #1F406E;
+    background-color: transparent;
+}
+
+QCheckBox:hover {
+	color: #0b2436;
+}
+
+QCheckBox::indicator {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #95a5a6;
+    background-color: #ffffff;
+    border-radius: 2px;
+}
+
+QCheckBox::indicator:hover {
+    border: 1px solid #3498db;
+    background-color: #ecf0f1;
+}
+
+QCheckBox::indicator:pressed {
+    background-color: #d5dbdb;
+}
+
+QCheckBox::indicator:checked {
+    background-color: #f2f2f2;
+    border: 1px solid #2980b9;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:hover {
+    background-color: #f2f2f2;
+    border: 1px solid #21618c;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:pressed {
+    background-color: #f2f2f2;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:disabled {
+    background-color: #afafb3;
+    border: 1px solid #bdc3c7;
+}
+
+QCheckBox::indicator:checked:disabled {
+    background-color: #95a5a6;
+    border: 1px solid #7f8c8d;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox:disabled {
+    color: #95a5a6;
+}</string>
+   </property>
+   <property name="text">
+    <string>Mobile</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_refby_remark">
+   <property name="geometry">
+    <rect>
+     <x>570</x>
+     <y>40</y>
+     <width>131</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel {
+    color: #0b2436;
+    font-size: 16px;
+    font-weight: 600;
+    background: transparent;
+    padding: 2px;
+}
+
+QLabel[highlight=&quot;true&quot;] {
+    color: #c0392b;
+    font-weight: 600;
+}
+
+QLabel[dim=&quot;true&quot;] {
+    color: #7f8c8d;
+    font-style: italic;
+}</string>
+   </property>
+   <property name="text">
+    <string>Ref By/ remark</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_ref_email">
+   <property name="geometry">
+    <rect>
+     <x>570</x>
+     <y>80</y>
+     <width>111</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QCheckBox {
+    spacing: 6px;
+    padding: 3px;
+    font-size: 11pt;
+    color: #1F406E;
+    background-color: transparent;
+}
+
+QCheckBox:hover {
+	color: #0b2436;
+}
+
+QCheckBox::indicator {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #95a5a6;
+    background-color: #ffffff;
+    border-radius: 2px;
+}
+
+QCheckBox::indicator:hover {
+    border: 1px solid #3498db;
+    background-color: #ecf0f1;
+}
+
+QCheckBox::indicator:pressed {
+    background-color: #d5dbdb;
+}
+
+QCheckBox::indicator:checked {
+    background-color: #f2f2f2;
+    border: 1px solid #2980b9;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:hover {
+    background-color: #f2f2f2;
+    border: 1px solid #21618c;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:pressed {
+    background-color: #f2f2f2;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:disabled {
+    background-color: #afafb3;
+    border: 1px solid #bdc3c7;
+}
+
+QCheckBox::indicator:checked:disabled {
+    background-color: #95a5a6;
+    border: 1px solid #7f8c8d;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox:disabled {
+    color: #95a5a6;
+}</string>
+   </property>
+   <property name="text">
+    <string>E-Mail</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_ref_dob">
+   <property name="geometry">
+    <rect>
+     <x>570</x>
+     <y>110</y>
+     <width>121</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QCheckBox {
+    spacing: 6px;
+    padding: 3px;
+    font-size: 11pt;
+    color: #1F406E;
+    background-color: transparent;
+}
+
+QCheckBox:hover {
+	color: #0b2436;
+}
+
+QCheckBox::indicator {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #95a5a6;
+    background-color: #ffffff;
+    border-radius: 2px;
+}
+
+QCheckBox::indicator:hover {
+    border: 1px solid #3498db;
+    background-color: #ecf0f1;
+}
+
+QCheckBox::indicator:pressed {
+    background-color: #d5dbdb;
+}
+
+QCheckBox::indicator:checked {
+    background-color: #f2f2f2;
+    border: 1px solid #2980b9;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:hover {
+    background-color: #f2f2f2;
+    border: 1px solid #21618c;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:pressed {
+    background-color: #f2f2f2;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:disabled {
+    background-color: #afafb3;
+    border: 1px solid #bdc3c7;
+}
+
+QCheckBox::indicator:checked:disabled {
+    background-color: #95a5a6;
+    border: 1px solid #7f8c8d;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox:disabled {
+    color: #95a5a6;
+}</string>
+   </property>
+   <property name="text">
+    <string>Date of Birth</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_ref_website">
+   <property name="geometry">
+    <rect>
+     <x>570</x>
+     <y>140</y>
+     <width>111</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QCheckBox {
+    spacing: 6px;
+    padding: 3px;
+    font-size: 11pt;
+    color: #1F406E;
+    background-color: transparent;
+}
+
+QCheckBox:hover {
+	color: #0b2436;
+}
+
+QCheckBox::indicator {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #95a5a6;
+    background-color: #ffffff;
+    border-radius: 2px;
+}
+
+QCheckBox::indicator:hover {
+    border: 1px solid #3498db;
+    background-color: #ecf0f1;
+}
+
+QCheckBox::indicator:pressed {
+    background-color: #d5dbdb;
+}
+
+QCheckBox::indicator:checked {
+    background-color: #f2f2f2;
+    border: 1px solid #2980b9;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:hover {
+    background-color: #f2f2f2;
+    border: 1px solid #21618c;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:pressed {
+    background-color: #f2f2f2;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:disabled {
+    background-color: #afafb3;
+    border: 1px solid #bdc3c7;
+}
+
+QCheckBox::indicator:checked:disabled {
+    background-color: #95a5a6;
+    border: 1px solid #7f8c8d;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox:disabled {
+    color: #95a5a6;
+}</string>
+   </property>
+   <property name="text">
+    <string>Website</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_ref_a_sciry">
+   <property name="geometry">
+    <rect>
+     <x>570</x>
+     <y>160</y>
+     <width>111</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QCheckBox {
+    spacing: 6px;
+    padding: 3px;
+    font-size: 11pt;
+    color: #1F406E;
+    background-color: transparent;
+}
+
+QCheckBox:hover {
+	color: #0b2436;
+}
+
+QCheckBox::indicator {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #95a5a6;
+    background-color: #ffffff;
+    border-radius: 2px;
+}
+
+QCheckBox::indicator:hover {
+    border: 1px solid #3498db;
+    background-color: #ecf0f1;
+}
+
+QCheckBox::indicator:pressed {
+    background-color: #d5dbdb;
+}
+
+QCheckBox::indicator:checked {
+    background-color: #f2f2f2;
+    border: 1px solid #2980b9;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:hover {
+    background-color: #f2f2f2;
+    border: 1px solid #21618c;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:pressed {
+    background-color: #f2f2f2;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:disabled {
+    background-color: #afafb3;
+    border: 1px solid #bdc3c7;
+}
+
+QCheckBox::indicator:checked:disabled {
+    background-color: #95a5a6;
+    border: 1px solid #7f8c8d;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox:disabled {
+    color: #95a5a6;
+}</string>
+   </property>
+   <property name="text">
+    <string>A' Sciry</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_personal_details">
+   <property name="geometry">
+    <rect>
+     <x>730</x>
+     <y>40</y>
+     <width>141</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel {
+    color: #0b2436;
+    font-size: 16px;
+    font-weight: 600;
+    background: transparent;
+    padding: 2px;
+}
+
+QLabel[highlight=&quot;true&quot;] {
+    color: #c0392b;
+    font-weight: 600;
+}
+
+QLabel[dim=&quot;true&quot;] {
+    color: #7f8c8d;
+    font-style: italic;
+}</string>
+   </property>
+   <property name="text">
+    <string>Personal Details</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_personal_spouse">
+   <property name="geometry">
+    <rect>
+     <x>740</x>
+     <y>70</y>
+     <width>111</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QCheckBox {
+    spacing: 6px;
+    padding: 3px;
+    font-size: 11pt;
+    color: #1F406E;
+    background-color: transparent;
+}
+
+QCheckBox:hover {
+	color: #0b2436;
+}
+
+QCheckBox::indicator {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #95a5a6;
+    background-color: #ffffff;
+    border-radius: 2px;
+}
+
+QCheckBox::indicator:hover {
+    border: 1px solid #3498db;
+    background-color: #ecf0f1;
+}
+
+QCheckBox::indicator:pressed {
+    background-color: #d5dbdb;
+}
+
+QCheckBox::indicator:checked {
+    background-color: #f2f2f2;
+    border: 1px solid #2980b9;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:hover {
+    background-color: #f2f2f2;
+    border: 1px solid #21618c;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:pressed {
+    background-color: #f2f2f2;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:disabled {
+    background-color: #afafb3;
+    border: 1px solid #bdc3c7;
+}
+
+QCheckBox::indicator:checked:disabled {
+    background-color: #95a5a6;
+    border: 1px solid #7f8c8d;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox:disabled {
+    color: #95a5a6;
+}</string>
+   </property>
+   <property name="text">
+    <string>Spouse</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_personal_mobile">
+   <property name="geometry">
+    <rect>
+     <x>740</x>
+     <y>110</y>
+     <width>111</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QCheckBox {
+    spacing: 6px;
+    padding: 3px;
+    font-size: 11pt;
+    color: #1F406E;
+    background-color: transparent;
+}
+
+QCheckBox:hover {
+	color: #0b2436;
+}
+
+QCheckBox::indicator {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #95a5a6;
+    background-color: #ffffff;
+    border-radius: 2px;
+}
+
+QCheckBox::indicator:hover {
+    border: 1px solid #3498db;
+    background-color: #ecf0f1;
+}
+
+QCheckBox::indicator:pressed {
+    background-color: #d5dbdb;
+}
+
+QCheckBox::indicator:checked {
+    background-color: #f2f2f2;
+    border: 1px solid #2980b9;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:hover {
+    background-color: #f2f2f2;
+    border: 1px solid #21618c;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:pressed {
+    background-color: #f2f2f2;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:disabled {
+    background-color: #afafb3;
+    border: 1px solid #bdc3c7;
+}
+
+QCheckBox::indicator:checked:disabled {
+    background-color: #95a5a6;
+    border: 1px solid #7f8c8d;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox:disabled {
+    color: #95a5a6;
+}</string>
+   </property>
+   <property name="text">
+    <string>Mobile</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_personal_jew_know">
+   <property name="geometry">
+    <rect>
+     <x>740</x>
+     <y>130</y>
+     <width>181</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QCheckBox {
+    spacing: 6px;
+    padding: 3px;
+    font-size: 11pt;
+    color: #1F406E;
+    background-color: transparent;
+}
+
+QCheckBox:hover {
+	color: #0b2436;
+}
+
+QCheckBox::indicator {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #95a5a6;
+    background-color: #ffffff;
+    border-radius: 2px;
+}
+
+QCheckBox::indicator:hover {
+    border: 1px solid #3498db;
+    background-color: #ecf0f1;
+}
+
+QCheckBox::indicator:pressed {
+    background-color: #d5dbdb;
+}
+
+QCheckBox::indicator:checked {
+    background-color: #f2f2f2;
+    border: 1px solid #2980b9;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:hover {
+    background-color: #f2f2f2;
+    border: 1px solid #21618c;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:pressed {
+    background-color: #f2f2f2;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:disabled {
+    background-color: #afafb3;
+    border: 1px solid #bdc3c7;
+}
+
+QCheckBox::indicator:checked:disabled {
+    background-color: #95a5a6;
+    border: 1px solid #7f8c8d;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox:disabled {
+    color: #95a5a6;
+}</string>
+   </property>
+   <property name="text">
+    <string>Jewellery Knowledge</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_personal_education">
+   <property name="geometry">
+    <rect>
+     <x>740</x>
+     <y>170</y>
+     <width>111</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QCheckBox {
+    spacing: 6px;
+    padding: 3px;
+    font-size: 11pt;
+    color: #1F406E;
+    background-color: transparent;
+}
+
+QCheckBox:hover {
+	color: #0b2436;
+}
+
+QCheckBox::indicator {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #95a5a6;
+    background-color: #ffffff;
+    border-radius: 2px;
+}
+
+QCheckBox::indicator:hover {
+    border: 1px solid #3498db;
+    background-color: #ecf0f1;
+}
+
+QCheckBox::indicator:pressed {
+    background-color: #d5dbdb;
+}
+
+QCheckBox::indicator:checked {
+    background-color: #f2f2f2;
+    border: 1px solid #2980b9;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:hover {
+    background-color: #f2f2f2;
+    border: 1px solid #21618c;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:pressed {
+    background-color: #f2f2f2;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:disabled {
+    background-color: #afafb3;
+    border: 1px solid #bdc3c7;
+}
+
+QCheckBox::indicator:checked:disabled {
+    background-color: #95a5a6;
+    border: 1px solid #7f8c8d;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox:disabled {
+    color: #95a5a6;
+}</string>
+   </property>
+   <property name="text">
+    <string>Education</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_personal_dob">
+   <property name="geometry">
+    <rect>
+     <x>740</x>
+     <y>200</y>
+     <width>161</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QCheckBox {
+    spacing: 6px;
+    padding: 3px;
+    font-size: 11pt;
+    color: #1F406E;
+    background-color: transparent;
+}
+
+QCheckBox:hover {
+	color: #0b2436;
+}
+
+QCheckBox::indicator {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #95a5a6;
+    background-color: #ffffff;
+    border-radius: 2px;
+}
+
+QCheckBox::indicator:hover {
+    border: 1px solid #3498db;
+    background-color: #ecf0f1;
+}
+
+QCheckBox::indicator:pressed {
+    background-color: #d5dbdb;
+}
+
+QCheckBox::indicator:checked {
+    background-color: #f2f2f2;
+    border: 1px solid #2980b9;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:hover {
+    background-color: #f2f2f2;
+    border: 1px solid #21618c;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:pressed {
+    background-color: #f2f2f2;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:disabled {
+    background-color: #afafb3;
+    border: 1px solid #bdc3c7;
+}
+
+QCheckBox::indicator:checked:disabled {
+    background-color: #95a5a6;
+    border: 1px solid #7f8c8d;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox:disabled {
+    color: #95a5a6;
+}</string>
+   </property>
+   <property name="text">
+    <string>Date of Birth</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_personal_email">
+   <property name="geometry">
+    <rect>
+     <x>740</x>
+     <y>230</y>
+     <width>111</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QCheckBox {
+    spacing: 6px;
+    padding: 3px;
+    font-size: 11pt;
+    color: #1F406E;
+    background-color: transparent;
+}
+
+QCheckBox:hover {
+	color: #0b2436;
+}
+
+QCheckBox::indicator {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #95a5a6;
+    background-color: #ffffff;
+    border-radius: 2px;
+}
+
+QCheckBox::indicator:hover {
+    border: 1px solid #3498db;
+    background-color: #ecf0f1;
+}
+
+QCheckBox::indicator:pressed {
+    background-color: #d5dbdb;
+}
+
+QCheckBox::indicator:checked {
+    background-color: #f2f2f2;
+    border: 1px solid #2980b9;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:hover {
+    background-color: #f2f2f2;
+    border: 1px solid #21618c;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:pressed {
+    background-color: #f2f2f2;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:disabled {
+    background-color: #afafb3;
+    border: 1px solid #bdc3c7;
+}
+
+QCheckBox::indicator:checked:disabled {
+    background-color: #95a5a6;
+    border: 1px solid #7f8c8d;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox:disabled {
+    color: #95a5a6;
+}</string>
+   </property>
+   <property name="text">
+    <string>E-Mail</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_personal_married">
+   <property name="geometry">
+    <rect>
+     <x>740</x>
+     <y>260</y>
+     <width>171</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QCheckBox {
+    spacing: 6px;
+    padding: 3px;
+    font-size: 11pt;
+    color: #1F406E;
+    background-color: transparent;
+}
+
+QCheckBox:hover {
+	color: #0b2436;
+}
+
+QCheckBox::indicator {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #95a5a6;
+    background-color: #ffffff;
+    border-radius: 2px;
+}
+
+QCheckBox::indicator:hover {
+    border: 1px solid #3498db;
+    background-color: #ecf0f1;
+}
+
+QCheckBox::indicator:pressed {
+    background-color: #d5dbdb;
+}
+
+QCheckBox::indicator:checked {
+    background-color: #f2f2f2;
+    border: 1px solid #2980b9;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:hover {
+    background-color: #f2f2f2;
+    border: 1px solid #21618c;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:pressed {
+    background-color: #f2f2f2;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:disabled {
+    background-color: #afafb3;
+    border: 1px solid #bdc3c7;
+}
+
+QCheckBox::indicator:checked:disabled {
+    background-color: #95a5a6;
+    border: 1px solid #7f8c8d;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox:disabled {
+    color: #95a5a6;
+}</string>
+   </property>
+   <property name="text">
+    <string>Married/Unmarried</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_personal_gender">
+   <property name="geometry">
+    <rect>
+     <x>740</x>
+     <y>290</y>
+     <width>111</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QCheckBox {
+    spacing: 6px;
+    padding: 3px;
+    font-size: 11pt;
+    color: #1F406E;
+    background-color: transparent;
+}
+
+QCheckBox:hover {
+	color: #0b2436;
+}
+
+QCheckBox::indicator {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #95a5a6;
+    background-color: #ffffff;
+    border-radius: 2px;
+}
+
+QCheckBox::indicator:hover {
+    border: 1px solid #3498db;
+    background-color: #ecf0f1;
+}
+
+QCheckBox::indicator:pressed {
+    background-color: #d5dbdb;
+}
+
+QCheckBox::indicator:checked {
+    background-color: #f2f2f2;
+    border: 1px solid #2980b9;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:hover {
+    background-color: #f2f2f2;
+    border: 1px solid #21618c;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:pressed {
+    background-color: #f2f2f2;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:disabled {
+    background-color: #afafb3;
+    border: 1px solid #bdc3c7;
+}
+
+QCheckBox::indicator:checked:disabled {
+    background-color: #95a5a6;
+    border: 1px solid #7f8c8d;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox:disabled {
+    color: #95a5a6;
+}</string>
+   </property>
+   <property name="text">
+    <string>Gender</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_personal_potential">
+   <property name="geometry">
+    <rect>
+     <x>740</x>
+     <y>320</y>
+     <width>111</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QCheckBox {
+    spacing: 6px;
+    padding: 3px;
+    font-size: 11pt;
+    color: #1F406E;
+    background-color: transparent;
+}
+
+QCheckBox:hover {
+	color: #0b2436;
+}
+
+QCheckBox::indicator {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #95a5a6;
+    background-color: #ffffff;
+    border-radius: 2px;
+}
+
+QCheckBox::indicator:hover {
+    border: 1px solid #3498db;
+    background-color: #ecf0f1;
+}
+
+QCheckBox::indicator:pressed {
+    background-color: #d5dbdb;
+}
+
+QCheckBox::indicator:checked {
+    background-color: #f2f2f2;
+    border: 1px solid #2980b9;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:hover {
+    background-color: #f2f2f2;
+    border: 1px solid #21618c;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:pressed {
+    background-color: #f2f2f2;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:disabled {
+    background-color: #afafb3;
+    border: 1px solid #bdc3c7;
+}
+
+QCheckBox::indicator:checked:disabled {
+    background-color: #95a5a6;
+    border: 1px solid #7f8c8d;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox:disabled {
+    color: #95a5a6;
+}</string>
+   </property>
+   <property name="text">
+    <string>Potential</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_tax_details">
+   <property name="geometry">
+    <rect>
+     <x>940</x>
+     <y>40</y>
+     <width>121</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel {
+    color: #0b2436;
+    font-size: 16px;
+    font-weight: 600;
+    background: transparent;
+    padding: 2px;
+}
+
+QLabel[highlight=&quot;true&quot;] {
+    color: #c0392b;
+    font-weight: 600;
+}
+
+QLabel[dim=&quot;true&quot;] {
+    color: #7f8c8d;
+    font-style: italic;
+}</string>
+   </property>
+   <property name="text">
+    <string>Tax Details</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_tax_from">
+   <property name="geometry">
+    <rect>
+     <x>950</x>
+     <y>80</y>
+     <width>111</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QCheckBox {
+    spacing: 6px;
+    padding: 3px;
+    font-size: 11pt;
+    color: #1F406E;
+    background-color: transparent;
+}
+
+QCheckBox:hover {
+	color: #0b2436;
+}
+
+QCheckBox::indicator {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #95a5a6;
+    background-color: #ffffff;
+    border-radius: 2px;
+}
+
+QCheckBox::indicator:hover {
+    border: 1px solid #3498db;
+    background-color: #ecf0f1;
+}
+
+QCheckBox::indicator:pressed {
+    background-color: #d5dbdb;
+}
+
+QCheckBox::indicator:checked {
+    background-color: #f2f2f2;
+    border: 1px solid #2980b9;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:hover {
+    background-color: #f2f2f2;
+    border: 1px solid #21618c;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:pressed {
+    background-color: #f2f2f2;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:disabled {
+    background-color: #afafb3;
+    border: 1px solid #bdc3c7;
+}
+
+QCheckBox::indicator:checked:disabled {
+    background-color: #95a5a6;
+    border: 1px solid #7f8c8d;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox:disabled {
+    color: #95a5a6;
+}</string>
+   </property>
+   <property name="text">
+    <string>From</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_tax_to">
+   <property name="geometry">
+    <rect>
+     <x>950</x>
+     <y>110</y>
+     <width>111</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QCheckBox {
+    spacing: 6px;
+    padding: 3px;
+    font-size: 11pt;
+    color: #1F406E;
+    background-color: transparent;
+}
+
+QCheckBox:hover {
+	color: #0b2436;
+}
+
+QCheckBox::indicator {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #95a5a6;
+    background-color: #ffffff;
+    border-radius: 2px;
+}
+
+QCheckBox::indicator:hover {
+    border: 1px solid #3498db;
+    background-color: #ecf0f1;
+}
+
+QCheckBox::indicator:pressed {
+    background-color: #d5dbdb;
+}
+
+QCheckBox::indicator:checked {
+    background-color: #f2f2f2;
+    border: 1px solid #2980b9;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:hover {
+    background-color: #f2f2f2;
+    border: 1px solid #21618c;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:pressed {
+    background-color: #f2f2f2;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:disabled {
+    background-color: #afafb3;
+    border: 1px solid #bdc3c7;
+}
+
+QCheckBox::indicator:checked:disabled {
+    background-color: #95a5a6;
+    border: 1px solid #7f8c8d;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox:disabled {
+    color: #95a5a6;
+}</string>
+   </property>
+   <property name="text">
+    <string>To</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_tax_type">
+   <property name="geometry">
+    <rect>
+     <x>950</x>
+     <y>130</y>
+     <width>111</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QCheckBox {
+    spacing: 6px;
+    padding: 3px;
+    font-size: 11pt;
+    color: #1F406E;
+    background-color: transparent;
+}
+
+QCheckBox:hover {
+	color: #0b2436;
+}
+
+QCheckBox::indicator {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #95a5a6;
+    background-color: #ffffff;
+    border-radius: 2px;
+}
+
+QCheckBox::indicator:hover {
+    border: 1px solid #3498db;
+    background-color: #ecf0f1;
+}
+
+QCheckBox::indicator:pressed {
+    background-color: #d5dbdb;
+}
+
+QCheckBox::indicator:checked {
+    background-color: #f2f2f2;
+    border: 1px solid #2980b9;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:hover {
+    background-color: #f2f2f2;
+    border: 1px solid #21618c;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:pressed {
+    background-color: #f2f2f2;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:disabled {
+    background-color: #afafb3;
+    border: 1px solid #bdc3c7;
+}
+
+QCheckBox::indicator:checked:disabled {
+    background-color: #95a5a6;
+    border: 1px solid #7f8c8d;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox:disabled {
+    color: #95a5a6;
+}</string>
+   </property>
+   <property name="text">
+    <string>Tax Type</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_tax_percent">
+   <property name="geometry">
+    <rect>
+     <x>950</x>
+     <y>170</y>
+     <width>111</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QCheckBox {
+    spacing: 6px;
+    padding: 3px;
+    font-size: 11pt;
+    color: #1F406E;
+    background-color: transparent;
+}
+
+QCheckBox:hover {
+	color: #0b2436;
+}
+
+QCheckBox::indicator {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #95a5a6;
+    background-color: #ffffff;
+    border-radius: 2px;
+}
+
+QCheckBox::indicator:hover {
+    border: 1px solid #3498db;
+    background-color: #ecf0f1;
+}
+
+QCheckBox::indicator:pressed {
+    background-color: #d5dbdb;
+}
+
+QCheckBox::indicator:checked {
+    background-color: #f2f2f2;
+    border: 1px solid #2980b9;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:hover {
+    background-color: #f2f2f2;
+    border: 1px solid #21618c;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:checked:pressed {
+    background-color: #f2f2f2;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox::indicator:disabled {
+    background-color: #afafb3;
+    border: 1px solid #bdc3c7;
+}
+
+QCheckBox::indicator:checked:disabled {
+    background-color: #95a5a6;
+    border: 1px solid #7f8c8d;
+    image: url(&quot;:/icon/check-50px_1.png&quot;);
+}
+
+QCheckBox:disabled {
+    color: #95a5a6;
+}</string>
+   </property>
+   <property name="text">
+    <string>Tax %</string>
+   </property>
+  </widget>
+  <zorder>checkBox_account_name</zorder>
+  <zorder>checkBox_Print_name</zorder>
+  <zorder>checkBox_group</zorder>
+  <zorder>checkBox_opening_balance</zorder>
+  <zorder>btn_opening_balance_info</zorder>
+  <zorder>checkBox_type</zorder>
+  <zorder>checkBox_gst_in</zorder>
+  <zorder>checkBox_hm_number</zorder>
+  <zorder>checkBox_pan_number</zorder>
+  <zorder>checkBox_tan_number</zorder>
+  <zorder>checkBox_msme</zorder>
+  <zorder>checkBox_tds_type</zorder>
+  <zorder>checkBox_tcs</zorder>
+  <zorder>checkBox_tds</zorder>
+  <zorder>checkBox_ui_number</zorder>
+  <zorder>checkBox_cst_number</zorder>
+  <zorder>checkBox_ecom</zorder>
+  <zorder>checkBox_bank_name</zorder>
+  <zorder>label_bank_details</zorder>
+  <zorder>checkBox_ac_no</zorder>
+  <zorder>checkBox_ifsc_code</zorder>
+  <zorder>label_user_ac_details</zorder>
+  <zorder>label_ac_details</zorder>
+  <zorder>checkBox_ac_address</zorder>
+  <zorder>checkBox_ac_location</zorder>
+  <zorder>checkBox_ac_city</zorder>
+  <zorder>checkBox_ac_pin</zorder>
+  <zorder>checkBox_ac_phone</zorder>
+  <zorder>checkBox_ac_occupation</zorder>
+  <zorder>checkBox_ac_state</zorder>
+  <zorder>checkBox_ac_country</zorder>
+  <zorder>checkBox_ac_mobile</zorder>
+  <zorder>text_opening_balance_info</zorder>
+  <zorder>label_refby_remark</zorder>
+  <zorder>checkBox_ref_email</zorder>
+  <zorder>checkBox_ref_dob</zorder>
+  <zorder>checkBox_ref_website</zorder>
+  <zorder>checkBox_ref_a_sciry</zorder>
+  <zorder>label_personal_details</zorder>
+  <zorder>checkBox_personal_spouse</zorder>
+  <zorder>checkBox_personal_mobile</zorder>
+  <zorder>checkBox_personal_jew_know</zorder>
+  <zorder>checkBox_personal_education</zorder>
+  <zorder>checkBox_personal_dob</zorder>
+  <zorder>checkBox_personal_email</zorder>
+  <zorder>checkBox_personal_married</zorder>
+  <zorder>checkBox_personal_gender</zorder>
+  <zorder>checkBox_personal_potential</zorder>
+  <zorder>label_tax_details</zorder>
+  <zorder>checkBox_tax_from</zorder>
+  <zorder>checkBox_tax_to</zorder>
+  <zorder>checkBox_tax_type</zorder>
+  <zorder>checkBox_tax_percent</zorder>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

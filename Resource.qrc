@@ -41,5 +41,6 @@
         <file>icon/shopping-cart-checkout.png</file>
         <file>icon/arrow-up-1.png</file>
         <file>icon/no_image_1.png</file>
+        <file>icon/check-50px_1.png</file>
     </qresource>
 </RCC>
