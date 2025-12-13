@@ -1,0 +1,844 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Account</class>
+ <widget class="QDialog" name="Account">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>909</width>
+    <height>681</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <property name="spacing">
+    <number>0</number>
+   </property>
+   <item row="0" column="0">
+    <widget class="QStackedWidget" name="stackedWidget">
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="page">
+      <layout class="QGridLayout" name="gridLayout_2">
+       <item row="4" column="14">
+        <widget class="QDateEdit" name="dateEdit"/>
+       </item>
+       <item row="1" column="13" rowspan="3" colspan="4">
+        <widget class="QGroupBox" name="groupBox">
+         <property name="title">
+          <string>Opening Balance:</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_3">
+          <item row="0" column="2">
+           <widget class="QLabel" name="jobNoLabel_8">
+            <property name="text">
+             <string>JOB NO.</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="3">
+           <widget class="QRadioButton" name="radioButton_3">
+            <property name="text">
+             <string>a</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="2">
+           <widget class="QLabel" name="jobNoLabel_10">
+            <property name="text">
+             <string>JOB NO.</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="jobNoLabel_6">
+            <property name="text">
+             <string>Silver</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QLabel" name="jobNoLabel_5">
+            <property name="text">
+             <string>Gold </string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QLineEdit" name="jobNoLineEdit_6"/>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLineEdit" name="jobNoLineEdit_4"/>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="jobNoLabel_7">
+            <property name="text">
+             <string>Ammount</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="3">
+           <widget class="QRadioButton" name="radioButton_2">
+            <property name="text">
+             <string>a</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLineEdit" name="jobNoLineEdit_5"/>
+          </item>
+          <item row="0" column="3">
+           <widget class="QRadioButton" name="radioButton">
+            <property name="text">
+             <string>a</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="2">
+           <widget class="QLabel" name="jobNoLabel_9">
+            <property name="text">
+             <string>JOB NO.</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="4">
+           <widget class="QRadioButton" name="radioButton_4">
+            <property name="text">
+             <string>a</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="4">
+           <widget class="QRadioButton" name="radioButton_5">
+            <property name="text">
+             <string>a</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="4">
+           <widget class="QRadioButton" name="radioButton_6">
+            <property name="text">
+             <string>a</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="4" column="15">
+        <widget class="QLabel" name="jobNoLabel_12">
+         <property name="text">
+          <string>JOB NO.</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1" colspan="12">
+        <widget class="QComboBox" name="comboBox"/>
+       </item>
+       <item row="8" column="9">
+        <widget class="QLineEdit" name="jobNoLineEdit_9"/>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="jobNoLabel_3">
+         <property name="text">
+          <string>Account Type:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="jobNoLabel_2">
+         <property name="text">
+          <string>Show Name:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0" rowspan="5" colspan="13">
+        <widget class="QTabWidget" name="tabWidget">
+         <property name="currentIndex">
+          <number>0</number>
+         </property>
+         <widget class="QWidget" name="accountDetail">
+          <attribute name="title">
+           <string>Account Detail</string>
+          </attribute>
+          <layout class="QGridLayout" name="gridLayout_4">
+           <item row="12" column="1">
+            <widget class="QLineEdit" name="lineEdit_12"/>
+           </item>
+           <item row="8" column="0">
+            <widget class="QLabel" name="jobNoLabel_20">
+             <property name="text">
+              <string>JOB NO.</string>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="0">
+            <widget class="QLabel" name="jobNoLabel_21">
+             <property name="text">
+              <string>JOB NO.</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="0">
+            <widget class="QLabel" name="jobNoLabel_23">
+             <property name="text">
+              <string>JOB NO.</string>
+             </property>
+            </widget>
+           </item>
+           <item row="11" column="0">
+            <widget class="QLabel" name="jobNoLabel_17">
+             <property name="text">
+              <string>JOB NO.</string>
+             </property>
+            </widget>
+           </item>
+           <item row="12" column="2">
+            <widget class="QLabel" name="jobNoLabel_16">
+             <property name="text">
+              <string>JOB NO.</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="jobNoLabel_25">
+             <property name="text">
+              <string>JOB NO.</string>
+             </property>
+            </widget>
+           </item>
+           <item row="12" column="0">
+            <widget class="QLabel" name="jobNoLabel_15">
+             <property name="text">
+              <string>JOB NO.</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="jobNoLabel_13">
+             <property name="text">
+              <string>JOB NO.</string>
+             </property>
+            </widget>
+           </item>
+           <item row="10" column="0">
+            <widget class="QLabel" name="jobNoLabel_18">
+             <property name="text">
+              <string>JOB NO.</string>
+             </property>
+            </widget>
+           </item>
+           <item row="9" column="0">
+            <widget class="QLabel" name="jobNoLabel_19">
+             <property name="text">
+              <string>JOB NO.</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLabel" name="jobNoLabel_24">
+             <property name="text">
+              <string>JOB NO.</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="jobNoLabel_14">
+             <property name="text">
+              <string>JOB NO.</string>
+             </property>
+            </widget>
+           </item>
+           <item row="12" column="3">
+            <widget class="QLineEdit" name="lineEdit_13"/>
+           </item>
+           <item row="6" column="0">
+            <widget class="QLabel" name="jobNoLabel_22">
+             <property name="text">
+              <string>JOB NO.</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="0">
+            <widget class="QLabel" name="jobNoLabel_26">
+             <property name="text">
+              <string>JOB NO.</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1" colspan="3">
+            <widget class="QTextEdit" name="textEdit"/>
+           </item>
+           <item row="1" column="1" colspan="3">
+            <widget class="QLineEdit" name="lineEdit_10"/>
+           </item>
+           <item row="2" column="1" colspan="3">
+            <widget class="QLineEdit" name="lineEdit"/>
+           </item>
+           <item row="3" column="1" colspan="3">
+            <widget class="QLineEdit" name="lineEdit_11"/>
+           </item>
+           <item row="5" column="1" colspan="3">
+            <widget class="QLineEdit" name="lineEdit_8"/>
+           </item>
+           <item row="6" column="1" colspan="3">
+            <widget class="QLineEdit" name="lineEdit_7"/>
+           </item>
+           <item row="7" column="1" colspan="3">
+            <widget class="QLineEdit" name="lineEdit_6"/>
+           </item>
+           <item row="8" column="1" colspan="3">
+            <widget class="QLineEdit" name="lineEdit_4"/>
+           </item>
+           <item row="9" column="1" colspan="3">
+            <widget class="QLineEdit" name="lineEdit_5"/>
+           </item>
+           <item row="10" column="1" colspan="3">
+            <widget class="QLineEdit" name="lineEdit_3"/>
+           </item>
+           <item row="11" column="1" colspan="3">
+            <widget class="QLineEdit" name="lineEdit_2"/>
+           </item>
+           <item row="4" column="1" colspan="3">
+            <widget class="QComboBox" name="comboBox_2"/>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="personalDetail">
+          <attribute name="title">
+           <string>Personal Detail</string>
+          </attribute>
+          <layout class="QGridLayout" name="gridLayout_5">
+           <item row="10" column="2">
+            <spacer name="horizontalSpacer_15">
+             <property name="orientation">
+              <enum>Qt::Orientation::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="5" column="1" colspan="8">
+            <widget class="QLineEdit" name="jobNoLineEdit_17"/>
+           </item>
+           <item row="7" column="0">
+            <widget class="QLabel" name="jobNoLabel_34">
+             <property name="text">
+              <string>JOB NO.</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="0">
+            <widget class="QLabel" name="jobNoLabel_31">
+             <property name="text">
+              <string>JOB NO.</string>
+             </property>
+            </widget>
+           </item>
+           <item row="10" column="0">
+            <spacer name="horizontalSpacer">
+             <property name="orientation">
+              <enum>Qt::Orientation::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="10" column="6">
+            <spacer name="horizontalSpacer_11">
+             <property name="orientation">
+              <enum>Qt::Orientation::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="3" column="1" colspan="8">
+            <widget class="QLineEdit" name="jobNoLineEdit_15"/>
+           </item>
+           <item row="10" column="5">
+            <spacer name="horizontalSpacer_12">
+             <property name="orientation">
+              <enum>Qt::Orientation::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="0" column="1" colspan="8">
+            <widget class="QLineEdit" name="jobNoLineEdit_12"/>
+           </item>
+           <item row="10" column="4">
+            <spacer name="horizontalSpacer_13">
+             <property name="orientation">
+              <enum>Qt::Orientation::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="jobNoLabel_29">
+             <property name="text">
+              <string>JOB NO.</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLabel" name="jobNoLabel_30">
+             <property name="text">
+              <string>JOB NO.</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="jobNoLabel_27">
+             <property name="text">
+              <string>JOB NO.</string>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="0">
+            <widget class="QLabel" name="jobNoLabel_33">
+             <property name="text">
+              <string>JOB NO.</string>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="8">
+            <widget class="QRadioButton" name="radioButton_8">
+             <property name="text">
+              <string>RadioButton</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="jobNoLabel_28">
+             <property name="text">
+              <string>JOB NO.</string>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="1" colspan="8">
+            <widget class="QDateEdit" name="dateEdit_2"/>
+           </item>
+           <item row="7" column="1">
+            <widget class="QRadioButton" name="radioButton_7">
+             <property name="text">
+              <string>RadioButton</string>
+             </property>
+            </widget>
+           </item>
+           <item row="8" column="0">
+            <widget class="QLabel" name="jobNoLabel_35">
+             <property name="text">
+              <string>JOB NO.</string>
+             </property>
+            </widget>
+           </item>
+           <item row="10" column="8">
+            <spacer name="horizontalSpacer_5">
+             <property name="orientation">
+              <enum>Qt::Orientation::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="4" column="1" colspan="8">
+            <widget class="QLineEdit" name="jobNoLineEdit_16"/>
+           </item>
+           <item row="10" column="7">
+            <spacer name="horizontalSpacer_10">
+             <property name="orientation">
+              <enum>Qt::Orientation::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="2" column="1" colspan="8">
+            <widget class="QLineEdit" name="jobNoLineEdit_14"/>
+           </item>
+           <item row="1" column="1" colspan="8">
+            <widget class="QLineEdit" name="jobNoLineEdit_13"/>
+           </item>
+           <item row="5" column="0">
+            <widget class="QLabel" name="jobNoLabel_32">
+             <property name="text">
+              <string>JOB NO.</string>
+             </property>
+            </widget>
+           </item>
+           <item row="10" column="3">
+            <spacer name="horizontalSpacer_14">
+             <property name="orientation">
+              <enum>Qt::Orientation::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="10" column="1">
+            <spacer name="horizontalSpacer_4">
+             <property name="orientation">
+              <enum>Qt::Orientation::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="8" column="1" colspan="8">
+            <widget class="QComboBox" name="comboBox_3"/>
+           </item>
+           <item row="9" column="0" colspan="9">
+            <widget class="QTableView" name="tableView_3"/>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="bankDetail">
+          <attribute name="title">
+           <string>Bank Detail</string>
+          </attribute>
+          <layout class="QFormLayout" name="formLayout">
+           <item row="0" column="0" colspan="2">
+            <widget class="QTableView" name="tableView"/>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="taxDetail">
+          <attribute name="title">
+           <string>Tax Detail</string>
+          </attribute>
+          <layout class="QFormLayout" name="formLayout_2">
+           <item row="0" column="0" colspan="2">
+            <widget class="QTableView" name="tableView_2"/>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+       <item row="8" column="4">
+        <spacer name="horizontalSpacer_3">
+         <property name="orientation">
+          <enum>Qt::Orientation::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="8" column="6">
+        <widget class="QLineEdit" name="jobNoLineEdit_7"/>
+       </item>
+       <item row="0" column="1" colspan="12">
+        <widget class="QLineEdit" name="jobNoLineEdit"/>
+       </item>
+       <item row="8" column="8">
+        <widget class="QLineEdit" name="jobNoLineEdit_8"/>
+       </item>
+       <item row="4" column="13">
+        <widget class="QLabel" name="jobNoLabel_11">
+         <property name="text">
+          <string>JOB NO.</string>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="10">
+        <spacer name="horizontalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Orientation::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="4" column="16">
+        <widget class="QDoubleSpinBox" name="doubleSpinBox"/>
+       </item>
+       <item row="8" column="12">
+        <spacer name="horizontalSpacer_6">
+         <property name="orientation">
+          <enum>Qt::Orientation::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="0" column="0">
+        <widget class="QLabel" name="jobNoLabel">
+         <property name="text">
+          <string>Account Name:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="14" colspan="3">
+        <widget class="QLineEdit" name="jobNoLineEdit_3"/>
+       </item>
+       <item row="8" column="7">
+        <widget class="QLineEdit" name="jobNoLineEdit_11"/>
+       </item>
+       <item row="0" column="13">
+        <widget class="QLabel" name="jobNoLabel_4">
+         <property name="text">
+          <string>Account No:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="2">
+        <spacer name="horizontalSpacer_8">
+         <property name="orientation">
+          <enum>Qt::Orientation::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="8" column="3">
+        <spacer name="horizontalSpacer_9">
+         <property name="orientation">
+          <enum>Qt::Orientation::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="1" column="1" colspan="12">
+        <widget class="QLineEdit" name="jobNoLineEdit_2"/>
+       </item>
+       <item row="8" column="11">
+        <spacer name="horizontalSpacer_7">
+         <property name="orientation">
+          <enum>Qt::Orientation::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="8" column="5">
+        <widget class="QLineEdit" name="jobNoLineEdit_10"/>
+       </item>
+       <item row="5" column="13" rowspan="3" colspan="4">
+        <widget class="QGroupBox" name="groupBox_2">
+         <property name="title">
+          <string>GST Detail</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_6">
+          <item row="8" column="1">
+           <widget class="QLineEdit" name="jobNoLineEdit_26"/>
+          </item>
+          <item row="4" column="0">
+           <widget class="QLabel" name="jobNoLabel_41">
+            <property name="text">
+             <string>JOB NO.</string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="1">
+           <widget class="QLineEdit" name="jobNoLineEdit_24"/>
+          </item>
+          <item row="0" column="0">
+           <widget class="QLabel" name="jobNoLabel_36">
+            <property name="text">
+             <string>JOB NO.</string>
+            </property>
+           </widget>
+          </item>
+          <item row="7" column="0">
+           <widget class="QLabel" name="jobNoLabel_37">
+            <property name="text">
+             <string>JOB NO.</string>
+            </property>
+           </widget>
+          </item>
+          <item row="10" column="1">
+           <widget class="QLineEdit" name="jobNoLineEdit_28"/>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="jobNoLabel_38">
+            <property name="text">
+             <string>JOB NO.</string>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="1">
+           <widget class="QLineEdit" name="jobNoLineEdit_25"/>
+          </item>
+          <item row="3" column="0">
+           <widget class="QLabel" name="jobNoLabel_40">
+            <property name="text">
+             <string>JOB NO.</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLineEdit" name="jobNoLineEdit_20"/>
+          </item>
+          <item row="11" column="1">
+           <widget class="QLineEdit" name="jobNoLineEdit_29"/>
+          </item>
+          <item row="6" column="0">
+           <widget class="QLabel" name="jobNoLabel_43">
+            <property name="text">
+             <string>JOB NO.</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLineEdit" name="jobNoLineEdit_18"/>
+          </item>
+          <item row="5" column="0">
+           <widget class="QLabel" name="jobNoLabel_42">
+            <property name="text">
+             <string>JOB NO.</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="1">
+           <widget class="QLineEdit" name="jobNoLineEdit_23"/>
+          </item>
+          <item row="3" column="1">
+           <widget class="QLineEdit" name="jobNoLineEdit_22"/>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="jobNoLabel_39">
+            <property name="text">
+             <string>JOB NO.</string>
+            </property>
+           </widget>
+          </item>
+          <item row="7" column="1">
+           <widget class="QLineEdit" name="jobNoLineEdit_19"/>
+          </item>
+          <item row="9" column="1">
+           <widget class="QLineEdit" name="jobNoLineEdit_27"/>
+          </item>
+          <item row="2" column="1">
+           <widget class="QLineEdit" name="jobNoLineEdit_21"/>
+          </item>
+          <item row="12" column="1">
+           <widget class="QLineEdit" name="jobNoLineEdit_30"/>
+          </item>
+          <item row="8" column="0">
+           <widget class="QLabel" name="jobNoLabel_44">
+            <property name="text">
+             <string>JOB NO.</string>
+            </property>
+           </widget>
+          </item>
+          <item row="9" column="0">
+           <widget class="QLabel" name="jobNoLabel_45">
+            <property name="text">
+             <string>JOB NO.</string>
+            </property>
+           </widget>
+          </item>
+          <item row="10" column="0">
+           <widget class="QLabel" name="jobNoLabel_46">
+            <property name="text">
+             <string>JOB NO.</string>
+            </property>
+           </widget>
+          </item>
+          <item row="11" column="0">
+           <widget class="QLabel" name="jobNoLabel_47">
+            <property name="text">
+             <string>JOB NO.</string>
+            </property>
+           </widget>
+          </item>
+          <item row="12" column="0">
+           <widget class="QLabel" name="jobNoLabel_48">
+            <property name="text">
+             <string>JOB NO.</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="page_2"/>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

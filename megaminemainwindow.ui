@@ -58,7 +58,7 @@
    </widget>
    <widget class="QMenu" name="menuAdmin">
     <property name="title">
-     <string>Admin</string>
+     <string>Management</string>
     </property>
     <addaction name="actionShow_Image"/>
     <addaction name="actionUpdate_Price"/>
