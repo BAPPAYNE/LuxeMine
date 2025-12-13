@@ -13,7 +13,11 @@ PRECOMPILED_HEADER = pch.h
 
 
 SOURCES += \
+<<<<<<< HEAD
     accountcheckbox.cpp \
+=======
+    account.cpp \
+>>>>>>> Master-owl
     addcatalog.cpp \
     admin.cpp \
     adminmenubuttons.cpp \
@@ -39,7 +43,11 @@ SOURCES += \
     utils.cpp
 
 HEADERS += \
+<<<<<<< HEAD
     accountcheckbox.h \
+=======
+    account.h \
+>>>>>>> Master-owl
     addcatalog.h \
     admin.h \
     adminmenubuttons.h \
@@ -64,7 +72,11 @@ HEADERS += \
     utils.h
 
 FORMS += \
+<<<<<<< HEAD
     accountcheckbox.ui \
+=======
+    account.ui \
+>>>>>>> Master-owl
     addcatalog.ui \
     admin.ui \
     adminmenubuttons.ui \

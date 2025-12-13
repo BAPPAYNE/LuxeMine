@@ -76,7 +76,7 @@ void Admin::on_show_images_clicked()
         if (!imagePaths.isEmpty()) {
             QPixmap pixmap(imagePaths[currentIndex]);
             ui->image_viewer->setPixmap(pixmap.scaled(ui->image_viewer->size(),
-                                                      Qt::KeepAspectRatio,
+                                                      Qt::IgnoreAspectRatio,
                                                       Qt::SmoothTransformation));
         } else {
             ui->image_viewer->clear();

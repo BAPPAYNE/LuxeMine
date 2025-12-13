@@ -235,7 +235,7 @@ void MegaMineMainWindow::updateMdiBackground()
         Qt::SmoothTransformation
         );
 
-    qDebug() << mdiAreaSize;
+    // qDebug() << mdiAreaSize;
 
     ui->mdiArea->setBackground(QBrush(scaledBg));
 }
